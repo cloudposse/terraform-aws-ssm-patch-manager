@@ -1,7 +1,6 @@
-module "example" {
+module "ssm_patch_manager" {
   source = "../.."
-
-  example = var.example
+  region = var.region
 
   context = module.this.context
 }
