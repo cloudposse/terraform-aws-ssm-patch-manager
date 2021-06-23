@@ -44,19 +44,4 @@ func TestExamplesComplete(t *testing.T) {
 	// Verify we're getting back the outputs we expect
 	assert.Equal(t, expectedMaintenanceWindowTaskId, MaintenanceWindowTaskId)
 
-	// 	/ Run `terraform output` to get the value of an output variable
-	// 	userName := terraform.Output(t, terraformOptions, "user_name")
-
-	// 	expectedUserName := "eg-test-s3-test-" + attributes[0]
-	// 	// Verify we're getting back the outputs we expect
-	// 	assert.Equal(t, expectedUserName, userName)
-
-	// 	// Run `terraform output` to get the value of an output variable
-	// 	s3BucketId := terraform.Output(t, terraformOptions, "bucket_id")
-
-	// 	expectedS3BucketId := "eg-test-s3-test-" + attributes[0]
-	// 	// Verify we're getting back the outputs we expect
-	// 	assert.Equal(t, expectedS3BucketId, s3BucketId)
-	// }
-
 }
