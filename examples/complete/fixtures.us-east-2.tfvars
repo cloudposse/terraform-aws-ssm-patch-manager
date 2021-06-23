@@ -1,8 +1,8 @@
-region = "us-west-1"
+region = "us-east-2"
 
 namespace = "eg"
 
-environment = "uw1"
+environment = "ue2"
 
 stage = "test"
 
