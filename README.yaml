@@ -5,7 +5,7 @@
 #
 
 # Name of this project
-name: terraform-example-module
+name: terraform-aws-ssm-patch-manager
 
 # Logo for this project
 #logo: docs/logo.png
@@ -20,13 +20,13 @@ copyrights:
     year: "2020"
 
 # Canonical GitHub repo
-github_repo: cloudposse/terraform-example-module
+github_repo: cloudposse/terraform-aws-ssm-patch-manager
 
 # Badges to display
 badges:
   - name: "Latest Release"
-    image: "https://img.shields.io/github/release/cloudposse/terraform-example-module.svg"
-    url: "https://github.com/cloudposse/terraform-example-module/releases/latest"
+    image: "https://img.shields.io/github/release/cloudposse/terraform-aws-ssm-patch-manager.svg"
+    url: "https://github.com/cloudposse/terraform-aws-ssm-patch-manager/releases/latest"
   - name: "Slack Community"
     image: "https://slack.cloudposse.com/badge.svg"
     url: "https://slack.cloudposse.com"
@@ -57,7 +57,7 @@ references:
 
 # Short description of this project
 description: |-
-  This is `terraform-example-module` project provides all the scaffolding for a typical well-built Cloud Posse module. It's a template repository you can
+  This is `terraform-aws-ssm-patch-manager` project provides all the scaffolding for a typical well-built Cloud Posse module. It's a template repository you can
   use when creating new repositories.
 
 # Introduction to the project
@@ -67,13 +67,13 @@ description: |-
 # How to use this module. Should be an easy example to copy and paste.
 usage: |-
   For a complete example, see [examples/complete](examples/complete).
-  
+
   For automated tests of the complete example using [bats](https://github.com/bats-core/bats-core) and [Terratest](https://github.com/gruntwork-io/terratest)
   (which tests and deploys the example on AWS), see [test](test).
 
   ```hcl
   module "example" {
-    source = "https://github.com/cloudposse/terraform-example-module.git?ref=master"
+    source = "https://github.com/cloudposse/terraform-aws-ssm-patch-manager.git?ref=master"
     example = "Hello world!"
   }
   ```
@@ -81,7 +81,7 @@ usage: |-
 # Example usage
 examples: |-
   Here is an example of using this module:
-  - [`examples/complete`](https://github.com/cloudposse/terraform-example-module/) - complete example of using this module
+  - [`examples/complete`](https://github.com/cloudposse/terraform-aws-ssm-patch-manager/) - complete example of using this module
 
 # How to get started quickly
 #quickstart: |-

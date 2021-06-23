@@ -1,10 +1,10 @@
-region = "us-east-2"
+region = "us-west-1"
 
 namespace = "eg"
 
-environment = "ue2"
+environment = "uw1"
 
 stage = "test"
 
-name = "example"
+name = "ssm-patch"
 
