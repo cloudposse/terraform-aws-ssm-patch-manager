@@ -17,7 +17,7 @@ license: "APACHE2"
 copyrights:
   - name: "Cloud Posse, LLC"
     url: "https://cloudposse.com"
-    year: "2020"
+    year: "2021"
 
 # Canonical GitHub repo
 github_repo: cloudposse/terraform-aws-ssm-patch-manager
@@ -57,8 +57,7 @@ references:
 
 # Short description of this project
 description: |-
-  This is `terraform-aws-ssm-patch-manager` project provides all the scaffolding for a typical well-built Cloud Posse module. It's a template repository you can
-  use when creating new repositories.
+  This module provisions AWS SSM Patch manager maintenance window tasks, targets, patch baseline, patch groups and a s3 bucket for storing patch task logs.
 
 # Introduction to the project
 #introduction: |-
@@ -72,9 +71,9 @@ usage: |-
   (which tests and deploys the example on AWS), see [test](test).
 
   ```hcl
-  module "example" {
+  module "ssm_patch_manager" {
     source = "https://github.com/cloudposse/terraform-aws-ssm-patch-manager.git?ref=master"
-    example = "Hello world!"
+    name = "test"
   }
   ```
 
@@ -94,5 +93,5 @@ include:
 
 # Contributors to this project
 contributors:
-  - name: "Erik Osterman"
-    github: "osterman"
+  - name: "PePe Amengual"
+    github: "jamengual"
