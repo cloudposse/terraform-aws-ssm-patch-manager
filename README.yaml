@@ -39,6 +39,9 @@ related:
   - name: "terraform-null-label"
     description: "Terraform module designed to generate consistent names and tags for resources. Use terraform-null-label to implement a strict naming convention."
     url: "https://github.com/cloudposse/terraform-null-label"
+  - name: "terraform-aws-ssm-patch-management"
+    description: "This module was heavely inspired by @jparnaudeau module"
+    url: "https://github.com/jparnaudeau/terraform-aws-ssm-patch-management"
 
 # List any resources helpful for someone to get started. For example, link to the hashicorp documentation or AWS documentation.
 references:
