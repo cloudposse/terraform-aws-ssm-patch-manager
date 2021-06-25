@@ -157,7 +157,7 @@ variable "rejected_patches" {
 }
 
 variable "patch_baseline_approval_rules" {
-  description = "A set of rules used to include patches in the baseline. up to 10 approval rules can be specified. Each approval_rule block requires the fields documented below."
+  description = "A set of rules used to include patches in the baseline. Up to 10 approval rules can be specified. Each `approval_rule` block requires the fields documented below."
   type = list(object({
     approve_after_days : number
     compliance_level : string
@@ -205,6 +205,6 @@ variable "ssm_bucket_policy" {
 
 variable "bucket_id" {
   type        = string
-  description = "The bucket id to use for the patch log. If not bucket id is provided the module will create a new one."
+  description = "The bucket ID to use for the patch log. If no bucket ID is provided, the module will create a new one."
   default     = null
 }
