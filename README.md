@@ -28,7 +28,7 @@
 
 -->
 
-This module provisions AWS SSM Patch manager maintenance window tasks, targets, patch baseline, patch groups and a s3 bucket for storing patch task logs.
+This module provisions AWS SSM Patch manager maintenance window tasks, targets, patch baseline, patch groups and an s3 bucket for storing patch task logs.
 
 ---
 
