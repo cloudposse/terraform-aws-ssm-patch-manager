@@ -1,6 +1,6 @@
 locals {
   enabled                 = module.this.enabled
-  create_log_bucket       = var.bucket_id == null ? true : false
+  create_log_bucket       = local.enabled && var.bucket_id == null ? true : false
   bucket_id               = var.bucket_id != "" ? var.bucket_id : module.ssm_patch_log_s3_bucket.bucket_id
   default_allowed_actions = ["s3:GetObject", "s3:PutObject", "s3:PutObjectAcl", "s3:GetEncryptionConfiguration"]
 }
@@ -17,7 +17,7 @@ module "ssm_patch_log_s3_bucket" {
 }
 
 resource "aws_ssm_maintenance_window" "scan_window" {
-  count    = module.this.enabled ? 1 : 0
+  count    = local.enabled ? 1 : 0
   name     = "${module.this.id}-scan-window"
   schedule = var.scan_maintenance_window_schedule
   duration = var.maintenance_window_duration
@@ -25,7 +25,7 @@ resource "aws_ssm_maintenance_window" "scan_window" {
 }
 
 resource "aws_ssm_maintenance_window_task" "task_scan_patches" {
-  count            = module.this.enabled ? 1 : 0
+  count            = local.enabled ? 1 : 0
   window_id        = aws_ssm_maintenance_window.scan_window[0].id
   task_type        = "RUN_COMMAND"
   task_arn         = "AWS-RunPatchBaseline"
@@ -66,7 +66,7 @@ resource "aws_ssm_maintenance_window_task" "task_scan_patches" {
 }
 
 resource "aws_ssm_maintenance_window_target" "target_scan" {
-  count         = module.this.enabled ? 1 : 0
+  count         = local.enabled ? 1 : 0
   window_id     = aws_ssm_maintenance_window.scan_window[0].id
   resource_type = "INSTANCE"
 
@@ -89,7 +89,7 @@ resource "aws_ssm_maintenance_window_target" "target_scan" {
 # Maintenance Windows for patching
 
 resource "aws_ssm_maintenance_window" "install_window" {
-  count    = module.this.enabled ? 1 : 0
+  count    = local.enabled ? 1 : 0
   name     = "${module.this.id}-install-window"
   schedule = var.install_maintenance_window_schedule
   duration = var.maintenance_window_duration
@@ -97,7 +97,7 @@ resource "aws_ssm_maintenance_window" "install_window" {
 }
 
 resource "aws_ssm_maintenance_window_task" "task_install_patches" {
-  count            = module.this.enabled ? 1 : 0
+  count            = local.enabled ? 1 : 0
   window_id        = aws_ssm_maintenance_window.install_window[0].id
   task_type        = "RUN_COMMAND"
   task_arn         = "AWS-RunPatchBaseline"
