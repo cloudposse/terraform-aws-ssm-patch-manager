@@ -66,7 +66,7 @@ resource "aws_ssm_maintenance_window_task" "task_scan_patches" {
 }
 
 resource "aws_ssm_maintenance_window_target" "target_scan" {
-  count         = module.this.enabled ? 1 : 0
+  count         = local.enabled ? 1 : 0
   window_id     = aws_ssm_maintenance_window.scan_window[0].id
   resource_type = "INSTANCE"
 
