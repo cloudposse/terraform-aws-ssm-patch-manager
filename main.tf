@@ -124,7 +124,7 @@ resource "aws_ssm_maintenance_window_task" "task_install_patches" {
       }
       output_s3_bucket     = local.bucket_id
       output_s3_key_prefix = var.s3_bucket_prefix_install_logs
-      service_role_arn = var.role_arn_for_notification
+      service_role_arn     = var.role_arn_for_notification
 
       dynamic "notification_config" {
         for_each = var.enable_notification_install ? [1] : []
