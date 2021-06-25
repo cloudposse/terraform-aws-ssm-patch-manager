@@ -120,7 +120,7 @@ variable "task_install_priority" {
 }
 
 variable "enable_notification_install" {
-  description = "Enable/Disable the SNS notification for install patchs"
+  description = "Enable/disable the SNS notification for install patches"
   type        = bool
   default     = false
 }
