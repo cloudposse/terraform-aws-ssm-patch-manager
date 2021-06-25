@@ -75,7 +75,8 @@ usage: |-
 
   ```hcl
   module "ssm_patch_manager" {
-    source = "https://github.com/cloudposse/terraform-aws-ssm-patch-manager.git?ref=master"
+    source  = "cloudposse/xxxxx/aws"
+    version = "xxxx"
     name = "test"
   }
   ```
