@@ -89,7 +89,7 @@ resource "aws_ssm_maintenance_window_target" "target_scan" {
 # Maintenance Windows for patching
 
 resource "aws_ssm_maintenance_window" "install_window" {
-  count    = module.this.enabled ? 1 : 0
+  count    = local.enabled ? 1 : 0
   name     = "${module.this.id}-install-window"
   schedule = var.install_maintenance_window_schedule
   duration = var.maintenance_window_duration
