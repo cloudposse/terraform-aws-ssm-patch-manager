@@ -17,7 +17,7 @@ module "ssm_patch_log_s3_bucket" {
 }
 
 resource "aws_ssm_maintenance_window" "scan_window" {
-  count    = module.this.enabled ? 1 : 0
+  count    = local.enabled ? 1 : 0
   name     = "${module.this.id}-scan-window"
   schedule = var.scan_maintenance_window_schedule
   duration = var.maintenance_window_duration
