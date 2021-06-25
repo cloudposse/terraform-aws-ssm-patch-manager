@@ -157,7 +157,7 @@ variable "rejected_patches" {
 }
 
 variable "patch_baseline_approval_rules" {
-  description = "A set of rules used to include patches in the baseline. up to 10 approval rules can be specified. Each approval_rule block requires the fields documented below."
+  description = "A set of rules used to include patches in the baseline. Up to 10 approval rules can be specified. Each `approval_rule` block requires the fields documented below."
   type = list(object({
     approve_after_days : number
     compliance_level : string
