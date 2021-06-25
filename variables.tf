@@ -2,6 +2,7 @@ variable "region" {
   type        = string
   description = "AWS region"
 }
+
 variable "maintenance_window_duration" {
   description = "The duration of the maintenence windows (hours)"
   type        = number
@@ -95,6 +96,7 @@ variable "scan_maintenance_windows_targets" {
   )
   default = []
 }
+
 variable "install_patch_groups" {
   description = "he targets to register with the maintenance window. In other words, the instances to run commands on when the maintenance window runs. You can specify targets using instance IDs, resource group names, or tags that have been applied to instances. For more information about these examples formats see (https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html)"
   type        = list(string)
@@ -135,11 +137,13 @@ variable "install_maintenance_windows_targets" {
   )
   default = []
 }
+
 variable "operating_system" {
   description = "Defines the operating system the patch baseline applies to. Supported operating systems include WINDOWS, AMAZON_LINUX, AMAZON_LINUX_2, SUSE, UBUNTU, CENTOS, and REDHAT_ENTERPRISE_LINUX. The Default value is WINDOWS."
   type        = string
   default     = "AMAZON_LINUX_2"
 }
+
 variable "approved_patches" {
   description = "A list of explicitly approved patches for the baseline"
   type        = list(string)
