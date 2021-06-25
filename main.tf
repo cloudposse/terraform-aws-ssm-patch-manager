@@ -36,7 +36,7 @@ resource "aws_ssm_maintenance_window_task" "task_scan_patches" {
 
   targets {
     key    = "WindowTargetIds"
-    values = aws_ssm_maintenance_window_target.target_scan.*.id
+    values = [aws_ssm_maintenance_window_target.target_scan.*.id]
   }
 
   task_invocation_parameters {
@@ -71,7 +71,7 @@ resource "aws_ssm_maintenance_window_target" "target_scan" {
   resource_type = "INSTANCE"
 
   dynamic "targets" {
-    for_each = length(var.scan_maintenance_windows_targets) > 0 ? var.scan_maintenance_windows_targets : []
+    for_each = toset(var.scan_maintenance_windows_targets)
     content {
       key    = targets.value.key
       values = targets.value.values
@@ -125,6 +125,7 @@ resource "aws_ssm_maintenance_window_task" "task_install_patches" {
       output_s3_key_prefix = var.s3_bucket_prefix_install_logs
 
       service_role_arn = var.role_arn_for_notification
+
       dynamic "notification_config" {
         for_each = var.enable_notification_install ? [1] : []
         content {
@@ -142,7 +143,7 @@ resource "aws_ssm_maintenance_window_target" "target_install" {
   window_id     = aws_ssm_maintenance_window.install_window[0].id
   resource_type = "INSTANCE"
   dynamic "targets" {
-    for_each = length(var.install_maintenance_windows_targets) > 0 ? var.install_maintenance_windows_targets : []
+    for_each = toset(var.install_maintenance_windows_targets)
     content {
       key    = targets.value.key
       values = targets.value.values
