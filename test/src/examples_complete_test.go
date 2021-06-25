@@ -42,6 +42,6 @@ func TestExamplesComplete(t *testing.T) {
 	maintenanceWindowTaskId := terraform.Output(t, terraformOptions, "scan_maintenance_window_task_id")
 	expectedMaintenanceWindowTaskId := "eg-test-ssm-patch-test-" + attributes[0]
 	// Verify we're getting back the outputs we expect
-	assert.Equal(t, expectedMaintenanceWindowTaskId, MaintenanceWindowTaskId)
+	assert.Equal(t, expectedMaintenanceWindowTaskId, maintenanceWindowTaskId)
 
 }
