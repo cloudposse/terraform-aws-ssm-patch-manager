@@ -1,6 +1,6 @@
 module github.com/cloudposse/terraform-aws-ssm-patch-manager
 
-go 1.13
+go 1.16
 
 require (
 	github.com/gruntwork-io/terratest v0.28.15

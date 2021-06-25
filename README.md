@@ -100,7 +100,8 @@ For automated tests of the complete example using [bats](https://github.com/bats
 
 ```hcl
 module "ssm_patch_manager" {
-  source = "https://github.com/cloudposse/terraform-aws-ssm-patch-manager.git?ref=master"
+  source  = "cloudposse/xxxxx/aws"
+  version = "xxxx"
   name = "test"
 }
 ```
@@ -149,8 +150,6 @@ Available targets:
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_iam_roles"></a> [iam\_roles](#module\_iam\_roles) | ../account-map/modules/iam-roles | n/a |
-| <a name="module_iam_roles_security"></a> [iam\_roles\_security](#module\_iam\_roles\_security) | ../account-map/modules/iam-roles | n/a |
 | <a name="module_ssm_patch_log_s3_bucket"></a> [ssm\_patch\_log\_s3\_bucket](#module\_ssm\_patch\_log\_s3\_bucket) | cloudposse/s3-bucket/aws | 0.38.0 |
 | <a name="module_this"></a> [this](#module\_this) | cloudposse/label/null | 0.24.1 |
 
@@ -179,12 +178,11 @@ Available targets:
 | <a name="input_bucket_id"></a> [bucket\_id](#input\_bucket\_id) | The bucket id to use for the patch log. If not bucket id is provided the module will create a new one. | `string` | `null` | no |
 | <a name="input_context"></a> [context](#input\_context) | Single object for setting entire context at once.<br>See description of individual variables for details.<br>Leave string and numeric variables as `null` to use default value.<br>Individual variable settings (non-null) override settings in context object,<br>except for attributes, tags, and additional\_tag\_map, which are merged. | `any` | <pre>{<br>  "additional_tag_map": {},<br>  "attributes": [],<br>  "delimiter": null,<br>  "enabled": true,<br>  "environment": null,<br>  "id_length_limit": null,<br>  "label_key_case": null,<br>  "label_order": [],<br>  "label_value_case": null,<br>  "name": null,<br>  "namespace": null,<br>  "regex_replace_chars": null,<br>  "stage": null,<br>  "tags": {}<br>}</pre> | no |
 | <a name="input_delimiter"></a> [delimiter](#input\_delimiter) | Delimiter to be used between `namespace`, `environment`, `stage`, `name` and `attributes`.<br>Defaults to `-` (hyphen). Set to `""` to use no delimiter at all. | `string` | `null` | no |
-| <a name="input_enable_notification_install"></a> [enable\_notification\_install](#input\_enable\_notification\_install) | Enable/Disable the SNS notification for install patchs | `bool` | `false` | no |
+| <a name="input_enable_notification_install"></a> [enable\_notification\_install](#input\_enable\_notification\_install) | Enable/disable the SNS notification for install patches | `bool` | `false` | no |
 | <a name="input_enable_notification_scan"></a> [enable\_notification\_scan](#input\_enable\_notification\_scan) | Enable/Disable the SNS notification for scans | `bool` | `false` | no |
 | <a name="input_enabled"></a> [enabled](#input\_enabled) | Set to false to prevent the module from creating any resources | `bool` | `null` | no |
 | <a name="input_environment"></a> [environment](#input\_environment) | Environment, e.g. 'uw2', 'us-west-2', OR 'prod', 'staging', 'dev', 'UAT' | `string` | `null` | no |
 | <a name="input_id_length_limit"></a> [id\_length\_limit](#input\_id\_length\_limit) | Limit `id` to this many characters (minimum 6).<br>Set to `0` for unlimited length.<br>Set to `null` for default, which is `0`.<br>Does not affect `id_full`. | `number` | `null` | no |
-| <a name="input_import_role_arn"></a> [import\_role\_arn](#input\_import\_role\_arn) | IAM Role ARN to use when importing a resource | `string` | `null` | no |
 | <a name="input_install_maintenance_window_schedule"></a> [install\_maintenance\_window\_schedule](#input\_install\_maintenance\_window\_schedule) | The schedule of the Maintenance Window in the form of a cron or rate expression | `string` | `"cron(0 0 21 ? * WED *)"` | no |
 | <a name="input_install_maintenance_windows_targets"></a> [install\_maintenance\_windows\_targets](#input\_install\_maintenance\_windows\_targets) | The targets to register with the maintenance window. In other words, the instances to run commands on when the maintenance window runs. You can specify targets using instance IDs, resource group names, or tags that have been applied to instances. For more information about these examples formats see (https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html) | <pre>list(object({<br>    key : string<br>    values : list(string)<br>    }<br>    )<br>  )</pre> | `[]` | no |
 | <a name="input_install_patch_groups"></a> [install\_patch\_groups](#input\_install\_patch\_groups) | he targets to register with the maintenance window. In other words, the instances to run commands on when the maintenance window runs. You can specify targets using instance IDs, resource group names, or tags that have been applied to instances. For more information about these examples formats see (https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html) | `list(string)` | <pre>[<br>  "TOPATCH"<br>]</pre> | no |
