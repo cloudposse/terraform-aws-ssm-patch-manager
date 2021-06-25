@@ -205,6 +205,6 @@ variable "ssm_bucket_policy" {
 
 variable "bucket_id" {
   type        = string
-  description = "The bucket id to use for the patch log. If not bucket id is provided the module will create a new one."
+  description = "The bucket ID to use for the patch log. If no bucket ID is provided, the module will create a new one."
   default     = null
 }
