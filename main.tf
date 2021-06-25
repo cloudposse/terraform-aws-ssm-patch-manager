@@ -25,7 +25,7 @@ resource "aws_ssm_maintenance_window" "scan_window" {
 }
 
 resource "aws_ssm_maintenance_window_task" "task_scan_patches" {
-  count            = module.this.enabled ? 1 : 0
+  count            = local.enabled ? 1 : 0
   window_id        = aws_ssm_maintenance_window.scan_window[0].id
   task_type        = "RUN_COMMAND"
   task_arn         = "AWS-RunPatchBaseline"
