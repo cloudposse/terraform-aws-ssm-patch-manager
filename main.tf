@@ -142,6 +142,7 @@ resource "aws_ssm_maintenance_window_target" "target_install" {
   count         = module.this.enabled ? 1 : 0
   window_id     = aws_ssm_maintenance_window.install_window[0].id
   resource_type = "INSTANCE"
+
   dynamic "targets" {
     for_each = toset(var.install_maintenance_windows_targets)
     content {
