@@ -1,18 +1,5 @@
 locals {
   enabled                 = module.this.enabled
-  create_log_bucket       = local.enabled && var.bucket_id == null ? true : false
-  bucket_id               = var.bucket_id != null ? var.bucket_id : module.ssm_patch_log_s3_bucket.bucket_id
-  default_allowed_actions = ["s3:GetObject", "s3:PutObject", "s3:PutObjectAcl", "s3:GetEncryptionConfiguration"]
-}
-
-module "ssm_patch_log_s3_bucket" {
-  count              = local.create_log_bucket ? 1 : 0
-  source             = "cloudposse/s3-bucket/aws"
-  version            = "0.38.0"
-  acl                = "private"
-  versioning_enabled = false
-  policy             = var.ssm_bucket_policy
-  context            = module.this.context
 }
 
 resource "aws_ssm_maintenance_window" "scan_window" {
