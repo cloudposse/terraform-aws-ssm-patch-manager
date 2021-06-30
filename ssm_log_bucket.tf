@@ -1,12 +1,12 @@
 locals {
   create_log_bucket    = local.enabled && var.bucket_id == null ? true : false
   bucket_id            = var.bucket_id != null ? var.bucket_id : module.ssm_patch_log_s3_bucket.bucket_id
-  create_bucket_policy = var.ssm_bucket_policy != null ? 1 : 0
+  create_bucket_policy = var.ssm_bucket_policy != null
   bucket_policy        = var.ssm_bucket_policy != null ? var.ssm_bucket_policy : data.aws_iam_policy_document.bucket_policy.*.json
 }
 
 data "aws_iam_policy_document" "bucket_policy" {
-  count = local.create_bucket_policy
+  count = local.create_bucket_policy ? 1 : 0
 
   statement {
     sid       = "AllowSSMPatchUpload"
