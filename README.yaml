@@ -75,7 +75,7 @@ usage: |-
 
   ```hcl
   module "ssm_patch_manager" {
-    source  = "cloudposse/xxxxx/aws"
+    source  = "cloudposse/ssm-patch-manager/aws"
     version = "xxxx"
     name = "test"
   }
