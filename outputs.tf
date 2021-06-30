@@ -24,7 +24,7 @@ output "scan_maintenance_window_target" {
 }
 
 output "install_maintenance_window_target" {
-  description = "SSM Patch manager install maintenance window target id"
+  description = "SSM Patch Manager install maintenance window target id"
   value       = aws_ssm_maintenance_window_target.target_install[0].id
 }
 
