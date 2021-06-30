@@ -100,7 +100,7 @@ For automated tests of the complete example using [bats](https://github.com/bats
 
 ```hcl
 module "ssm_patch_manager" {
-  source  = "cloudposse/xxxxx/aws"
+  source  = "cloudposse/ssm-patch-manager/aws"
   version = "xxxx"
   name = "test"
 }
@@ -112,7 +112,7 @@ module "ssm_patch_manager" {
 ## Examples
 
 Here is an example of using this module:
-- [`examples/complete`](https://github.com/cloudposse/terraform-aws-ssm-patch-manager/) - complete example of using this module
+- [`examples/complete`](examples/complete) - complete example of using this module
 
 
 
