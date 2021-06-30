@@ -6,13 +6,13 @@ locals {
 }
 
 module "ssm_patch_log_s3_bucket" {
-  count                  = local.create_log_bucket ? 1 : 0
-  source                 = "cloudposse/s3-bucket/aws"
-  version                = "0.38.0"
-  acl                    = "private"
-  versioning_enabled     = false
-  policy                 = var.ssm_bucket_policy
-  context                = module.this.context
+  count              = local.create_log_bucket ? 1 : 0
+  source             = "cloudposse/s3-bucket/aws"
+  version            = "0.38.0"
+  acl                = "private"
+  versioning_enabled = false
+  policy             = var.ssm_bucket_policy
+  context            = module.this.context
 }
 
 resource "aws_ssm_maintenance_window" "scan_window" {
