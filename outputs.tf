@@ -39,7 +39,7 @@ output "patch_baseline_arn" {
 }
 
 output "install_patch_group_id" {
-  description = "SSM Patch manager install patch group id"
+  description = "SSM Patch Manager install patch group ID"
   value       = aws_ssm_patch_group.install_patchgroup[0].id
 }
 
