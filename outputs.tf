@@ -9,7 +9,7 @@ output "ssm_patch_log_s3_bucket_arn" {
 }
 
 output "scan_maintenance_window_task_id" {
-  description = "SSM Patch manager scan maintenance windows task id"
+  description = "SSM Patch Manager scan maintenance windows task ID"
   value       = aws_ssm_maintenance_window_task.task_scan_patches[0].id
 }
 
