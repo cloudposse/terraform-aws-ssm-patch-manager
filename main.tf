@@ -1,7 +1,7 @@
 locals {
   enabled                 = module.this.enabled
   create_log_bucket       = local.enabled && var.bucket_id == null ? true : false
-  bucket_id               = var.bucket_id != "" ? var.bucket_id : module.ssm_patch_log_s3_bucket.bucket_id
+  bucket_id               = var.bucket_id != null ? var.bucket_id : module.ssm_patch_log_s3_bucket.bucket_id
   default_allowed_actions = ["s3:GetObject", "s3:PutObject", "s3:PutObjectAcl", "s3:GetEncryptionConfiguration"]
 }
 
