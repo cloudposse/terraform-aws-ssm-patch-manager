@@ -148,7 +148,7 @@ resource "aws_ssm_maintenance_window_target" "target_install" {
 
 # Patch Baselines
 resource "aws_ssm_patch_baseline" "baseline" {
-  count            = module.this.enabled ? 1 : 0
+  count            = local.enabled ? 1 : 0
   name             = "${module.this.id}-${var.operating_system}"
   description      = "Amazon linux 2 baseline"
   operating_system = var.operating_system
@@ -158,7 +158,7 @@ resource "aws_ssm_patch_baseline" "baseline" {
   approved_patches_compliance_level = var.approved_patches_compliance_level
 
   dynamic "approval_rule" {
-    for_each = var.patch_baseline_approval_rules
+    for_each = toset(var.patch_baseline_approval_rules)
     content {
 
       approve_after_days  = approval_rule.value.approve_after_days
@@ -180,13 +180,13 @@ resource "aws_ssm_patch_baseline" "baseline" {
 }
 
 resource "aws_ssm_patch_group" "install_patchgroup" {
-  count       = (module.this.enabled ? 1 : 0) * length(var.scan_patch_groups)
+  count       = (local.enabled ? 1 : 0) * length(var.scan_patch_groups)
   baseline_id = aws_ssm_patch_baseline.baseline[0].id
   patch_group = element(var.install_patch_groups, count.index)
 }
 
 resource "aws_ssm_patch_group" "scan_patchgroup" {
-  count       = (module.this.enabled ? 1 : 0) * length(var.scan_patch_groups)
+  count       = (local.enabled ? 1 : 0) * length(var.scan_patch_groups)
   baseline_id = aws_ssm_patch_baseline.baseline[0].id
   patch_group = element(var.scan_patch_groups, count.index)
 }
