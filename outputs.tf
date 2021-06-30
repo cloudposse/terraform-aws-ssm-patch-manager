@@ -44,6 +44,6 @@ output "install_patch_group_id" {
 }
 
 output "scan_patch_group_id" {
-  description = "SSM Patch manager scan patch group id"
+  description = "SSM Patch Manager scan patch group ID"
   value       = aws_ssm_patch_group.scan_patchgroup[0].id
 }
