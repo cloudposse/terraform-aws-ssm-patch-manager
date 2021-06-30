@@ -34,7 +34,7 @@ output "install_maintenance_window" {
 }
 
 output "patch_baseline_arn" {
-  description = "SSM Patch manager patch baseline arn"
+  description = "SSM Patch Manager patch baseline ARN"
   value       = aws_ssm_patch_baseline.baseline[0].arn
 }
 
