@@ -1,5 +1,5 @@
 output "ssm_patch_log_s3_bucket_id" {
-  description = "SSM Patch manager s3 log bucket id"
+  description = "SSM Patch manager s3 log bucket ID"
   value       = module.ssm_patch_log_s3_bucket[0].bucket_id
 }
 
