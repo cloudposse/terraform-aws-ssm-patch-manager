@@ -4,7 +4,7 @@ output "ssm_patch_log_s3_bucket_id" {
 }
 
 output "ssm_patch_log_s3_bucket_arn" {
-  description = "SSM Patch manager s3 log bucket arn"
+  description = "SSM Patch Manager s3 log bucket ARN"
   value       = module.ssm_patch_log_s3_bucket[0].bucket_arn
 }
 
