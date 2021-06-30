@@ -148,7 +148,7 @@ resource "aws_ssm_maintenance_window_target" "target_install" {
 
 # Patch Baselines
 resource "aws_ssm_patch_baseline" "baseline" {
-  count            = module.this.enabled ? 1 : 0
+  count            = local.enabled ? 1 : 0
   name             = "${module.this.id}-${var.operating_system}"
   description      = "Amazon linux 2 baseline"
   operating_system = var.operating_system
