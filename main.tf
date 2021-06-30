@@ -180,7 +180,7 @@ resource "aws_ssm_patch_baseline" "baseline" {
 }
 
 resource "aws_ssm_patch_group" "install_patchgroup" {
-  count       = (module.this.enabled ? 1 : 0) * length(var.scan_patch_groups)
+  count       = (local.enabled ? 1 : 0) * length(var.scan_patch_groups)
   baseline_id = aws_ssm_patch_baseline.baseline[0].id
   patch_group = element(var.install_patch_groups, count.index)
 }
