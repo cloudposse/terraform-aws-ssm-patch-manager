@@ -1,5 +1,5 @@
 locals {
-  enabled                 = module.this.enabled
+  enabled = module.this.enabled
 }
 
 resource "aws_ssm_maintenance_window" "scan_window" {
