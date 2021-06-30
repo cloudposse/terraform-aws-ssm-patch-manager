@@ -223,14 +223,14 @@ Available targets:
 |------|-------------|
 | <a name="output_install_maintenance_window"></a> [install\_maintenance\_window](#output\_install\_maintenance\_window) | SSM Patch manager install maintenance window id |
 | <a name="output_install_maintenance_window_target"></a> [install\_maintenance\_window\_target](#output\_install\_maintenance\_window\_target) | SSM Patch manager install maintenance window target id |
-| <a name="output_install_maintenance_window_task_id"></a> [install\_maintenance\_window\_task\_id](#output\_install\_maintenance\_window\_task\_id) | SSM Patch manager install maintenance windows task id |
+| <a name="output_install_maintenance_window_task_id"></a> [install\_maintenance\_window\_task\_id](#output\_install\_maintenance\_window\_task\_id) | SSM Patch Manager install maintenance windows task ID |
 | <a name="output_install_patch_group_id"></a> [install\_patch\_group\_id](#output\_install\_patch\_group\_id) | SSM Patch manager install patch group id |
 | <a name="output_patch_baseline_arn"></a> [patch\_baseline\_arn](#output\_patch\_baseline\_arn) | SSM Patch manager patch baseline arn |
-| <a name="output_scan_maintenance_window_target"></a> [scan\_maintenance\_window\_target](#output\_scan\_maintenance\_window\_target) | SSM Patch manager scan maintenance window target |
-| <a name="output_scan_maintenance_window_task_id"></a> [scan\_maintenance\_window\_task\_id](#output\_scan\_maintenance\_window\_task\_id) | SSM Patch manager scan maintenance windows task id |
+| <a name="output_scan_maintenance_window_target"></a> [scan\_maintenance\_window\_target](#output\_scan\_maintenance\_window\_target) | SSM Patch Manager scan maintenance window target |
+| <a name="output_scan_maintenance_window_task_id"></a> [scan\_maintenance\_window\_task\_id](#output\_scan\_maintenance\_window\_task\_id) | SSM Patch Manager scan maintenance windows task ID |
 | <a name="output_scan_patch_group_id"></a> [scan\_patch\_group\_id](#output\_scan\_patch\_group\_id) | SSM Patch manager scan patch group id |
-| <a name="output_ssm_patch_log_s3_bucket_arn"></a> [ssm\_patch\_log\_s3\_bucket\_arn](#output\_ssm\_patch\_log\_s3\_bucket\_arn) | SSM Patch manager s3 log bucket arn |
-| <a name="output_ssm_patch_log_s3_bucket_id"></a> [ssm\_patch\_log\_s3\_bucket\_id](#output\_ssm\_patch\_log\_s3\_bucket\_id) | SSM Patch manager s3 log bucket id |
+| <a name="output_ssm_patch_log_s3_bucket_arn"></a> [ssm\_patch\_log\_s3\_bucket\_arn](#output\_ssm\_patch\_log\_s3\_bucket\_arn) | SSM Patch Manager s3 log bucket ARN |
+| <a name="output_ssm_patch_log_s3_bucket_id"></a> [ssm\_patch\_log\_s3\_bucket\_id](#output\_ssm\_patch\_log\_s3\_bucket\_id) | SSM Patch manager s3 log bucket ID |
 <!-- markdownlint-restore -->
 
 
