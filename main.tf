@@ -1,6 +1,6 @@
 locals {
   enabled                 = module.this.enabled
-  create_log_bucket       = local.enabled && var.bucket_id != null ? true : false
+  create_log_bucket       = local.enabled && var.bucket_id == null ? true : false
   bucket_id               = var.bucket_id != null ? var.bucket_id : module.ssm_patch_log_s3_bucket.bucket_id
   default_allowed_actions = ["s3:GetObject", "s3:PutObject", "s3:PutObjectAcl", "s3:GetEncryptionConfiguration"]
 }
@@ -11,7 +11,6 @@ module "ssm_patch_log_s3_bucket" {
   version                = "0.38.0"
   acl                    = "private"
   versioning_enabled     = false
-  allowed_bucket_actions = var.ssm_bucket_policy != null ? [] : local.default_allowed_actions
   policy                 = var.ssm_bucket_policy
   context                = module.this.context
 }
@@ -139,7 +138,7 @@ resource "aws_ssm_maintenance_window_task" "task_install_patches" {
 }
 
 resource "aws_ssm_maintenance_window_target" "target_install" {
-  count         = module.this.enabled ? 1 : 0
+  count         = local.enabled ? 1 : 0
   window_id     = aws_ssm_maintenance_window.install_window[0].id
   resource_type = "INSTANCE"
 

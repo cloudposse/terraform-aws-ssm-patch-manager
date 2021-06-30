@@ -100,7 +100,7 @@ For automated tests of the complete example using [bats](https://github.com/bats
 
 ```hcl
 module "ssm_patch_manager" {
-  source  = "cloudposse/xxxxx/aws"
+  source  = "cloudposse/ssm-patch-manager/aws"
   version = "xxxx"
   name = "test"
 }
@@ -112,7 +112,7 @@ module "ssm_patch_manager" {
 ## Examples
 
 Here is an example of using this module:
-- [`examples/complete`](https://github.com/cloudposse/terraform-aws-ssm-patch-manager/) - complete example of using this module
+- [`examples/complete`](examples/complete) - complete example of using this module
 
 
 
@@ -246,7 +246,7 @@ Are you using this project or any of our other projects? Consider [leaving a tes
 Check out these related projects.
 
 - [terraform-null-label](https://github.com/cloudposse/terraform-null-label) - Terraform module designed to generate consistent names and tags for resources. Use terraform-null-label to implement a strict naming convention.
-- [terraform-aws-ssm-patch-management](https://github.com/jparnaudeau/terraform-aws-ssm-patch-management) - This module was heavely inspired by @jparnaudeau module
+- [terraform-aws-ssm-patch-management](https://github.com/jparnaudeau/terraform-aws-ssm-patch-management) - This module was heavily inspired by @jparnaudeau module
 
 
 ## References
