@@ -14,7 +14,7 @@ output "scan_maintenance_window_task_id" {
 }
 
 output "install_maintenance_window_task_id" {
-  description = "SSM Patch manager install maintenance windows task id"
+  description = "SSM Patch Manager install maintenance windows task ID"
   value       = aws_ssm_maintenance_window_task.task_install_patches[0].id
 }
 
