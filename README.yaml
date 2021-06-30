@@ -54,17 +54,16 @@ references:
   - name: "Terraform Version Pinning"
     description: "The required_version setting can be used to constrain which versions of the Terraform CLI can be used with your configuration"
     url: "https://www.terraform.io/docs/configuration/terraform.html#specifying-a-required-terraform-version"
-  - name: "terraform-aws-ssm-patch-management"
-    description: "This module was heavily inspired by @jparnaudeau module"
-    url: "https://github.com/jparnaudeau/terraform-aws-ssm-patch-management"
 
 # Short description of this project
 description: |-
   This module provisions AWS SSM Patch manager maintenance window tasks, targets, patch baselines and patch groups and an s3 bucket for storing patch task logs.
 
 # Introduction to the project
-#introduction: |-
-#  This is an introduction.
+introduction: |-
+  ## Acknowledgements
+    This module was heavily inspired by @jparnaudeau module
+    https://github.com/jparnaudeau/terraform-aws-ssm-patch-management
 
 # How to use this module. Should be an easy example to copy and paste.
 usage: |-
