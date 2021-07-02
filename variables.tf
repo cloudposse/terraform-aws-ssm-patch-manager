@@ -57,7 +57,7 @@ variable "notification_arn" {
   default     = ""
 }
 
-variable "role_arn_for_notification" {
+variable "sns_notification_role_arn" {
   description = "An Amazon Resource Name (ARN) for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic."
   type        = string
   default     = ""
