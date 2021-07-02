@@ -80,7 +80,7 @@ variable "task_scan_priority" {
   default     = 1
 }
 
-variable "enable_notification_scan" {
+variable "scan_sns_notification_enabled" {
   description = "Enable/Disable the SNS notification for scans"
   type        = bool
   default     = false
