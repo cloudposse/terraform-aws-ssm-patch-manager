@@ -22,9 +22,9 @@ data "aws_iam_policy_document" "bucket_policy" {
 }
 
 resource "aws_s3_bucket_policy" "default" {
-  count      = local.create_log_bucket ? 1 : 0
-  bucket     = join("", module.ssm_patch_log_s3_bucket.*.bucket_id)
-  policy     = local.bucket_policy
+  count  = local.create_log_bucket ? 1 : 0
+  bucket = join("", module.ssm_patch_log_s3_bucket.*.bucket_id)
+  policy = local.bucket_policy
 }
 
 
