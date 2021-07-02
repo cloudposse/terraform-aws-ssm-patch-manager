@@ -33,7 +33,7 @@ output "install_maintenance_window_id" {
   value       = aws_ssm_maintenance_window.install_window[0].id
 }
 
-output "patch_baseline_arn_arn" {
+output "patch_baseline_arn" {
   description = "SSM Patch Manager patch baseline ARN"
   value       = aws_ssm_patch_baseline.baseline[0].arn
 }

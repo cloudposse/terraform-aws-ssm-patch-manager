@@ -3,13 +3,25 @@ variable "region" {
   description = "AWS region"
 }
 
-variable "maintenance_window_duration" {
+variable "scan_maintenance_window_duration" {
   description = "The duration of the maintenence windows (hours)"
   type        = number
   default     = 3
 }
 
-variable "maintenance_window_cutoff" {
+variable "scan_maintenance_window_cutoff" {
+  description = "The number of hours before the end of the Maintenance Window that Systems Manager stops scheduling new tasks for execution"
+  type        = number
+  default     = 1
+}
+
+variable "install_maintenance_window_duration" {
+  description = "The duration of the maintenence windows (hours)"
+  type        = number
+  default     = 3
+}
+
+variable "install_maintenance_window_cutoff" {
   description = "The number of hours before the end of the Maintenance Window that Systems Manager stops scheduling new tasks for execution"
   type        = number
   default     = 1

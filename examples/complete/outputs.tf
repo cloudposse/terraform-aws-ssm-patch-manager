@@ -20,7 +20,7 @@ output "install_maintenance_window_task_id" {
 
 output "scan_maintenance_window_target_id" {
   description = "SSM Patch Manager scan maintenance window target_id"
-  value       = module.ssm_patch_manager.scan_maintenance_window_target
+  value       = module.ssm_patch_manager.scan_maintenance_window_target_id
 }
 
 output "install_maintenance_window_target_id" {
@@ -30,7 +30,7 @@ output "install_maintenance_window_target_id" {
 
 output "install_maintenance_window_id" {
   description = "SSM Patch Manager install maintenance window ID"
-  value       = module.ssm_patch_manager.install_maintenance_window
+  value       = module.ssm_patch_manager.install_maintenance_window_id
 }
 
 output "patch_baseline_arn" {

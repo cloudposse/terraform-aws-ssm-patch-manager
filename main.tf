@@ -31,7 +31,7 @@ resource "aws_ssm_maintenance_window_task" "task_scan_patches" {
 
   targets {
     key    = "WindowTargetIds"
-    values = [aws_ssm_maintenance_window_target.target_scan.*.id]
+    values = aws_ssm_maintenance_window_target.target_scan.*.id
   }
 
   task_invocation_parameters {
@@ -46,10 +46,10 @@ resource "aws_ssm_maintenance_window_task" "task_scan_patches" {
       }
       output_s3_bucket     = local.bucket_id
       output_s3_key_prefix = "scaning"
-      service_role_arn     = var.role_arn_for_notification
+      service_role_arn     = var.sns_notification_role_arn
 
       dynamic "notification_config" {
-        for_each = var.enable_notification_scan ? [1] : []
+        for_each = var.scan_sns_notification_enabled ? [1] : []
         content {
           notification_arn    = var.notification_arn
           notification_events = var.notification_events
@@ -97,8 +97,8 @@ resource "aws_ssm_maintenance_window" "install_window" {
   count    = local.enabled ? 1 : 0
   name     = module.install_window_label.id
   schedule = var.install_maintenance_window_schedule
-  duration = var.maintenance_window_duration
-  cutoff   = var.maintenance_window_cutoff
+  duration = var.install_maintenance_window_duration
+  cutoff   = var.install_maintenance_window_cutoff
 }
 
 resource "aws_ssm_maintenance_window_task" "task_install_patches" {
@@ -131,7 +131,7 @@ resource "aws_ssm_maintenance_window_task" "task_install_patches" {
       service_role_arn     = var.sns_notification_role_arn
 
       dynamic "notification_config" {
-        for_each = var.enable_notification_install ? [1] : []
+        for_each = var.install_sns_notification_enabled ? [1] : []
         content {
           notification_arn    = var.notification_arn
           notification_events = var.notification_events
