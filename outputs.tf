@@ -1,5 +1,5 @@
 output "ssm_patch_log_s3_bucket_id" {
-  description = "SSM Patch manager s3 log bucket ID"
+  description = "SSM Patch Manager s3 log bucket ID"
   value       = module.ssm_patch_log_s3_bucket[0].bucket_id
 }
 
@@ -18,22 +18,22 @@ output "install_maintenance_window_task_id" {
   value       = aws_ssm_maintenance_window_task.task_install_patches[0].id
 }
 
-output "scan_maintenance_window_target" {
+output "scan_maintenance_window_target_id" {
   description = "SSM Patch Manager scan maintenance window target"
   value       = aws_ssm_maintenance_window_target.target_scan[0].id
 }
 
 output "install_maintenance_window_target" {
-  description = "SSM Patch Manager install maintenance window target id"
+  description = "SSM Patch Manager install maintenance window target ID"
   value       = aws_ssm_maintenance_window_target.target_install[0].id
 }
 
-output "install_maintenance_window" {
+output "install_maintenance_window_id" {
   description = "SSM Patch Manager install maintenance window ID"
   value       = aws_ssm_maintenance_window.install_window[0].id
 }
 
-output "patch_baseline_arn" {
+output "patch_baseline_arn_arn" {
   description = "SSM Patch Manager patch baseline ARN"
   value       = aws_ssm_patch_baseline.baseline[0].arn
 }
