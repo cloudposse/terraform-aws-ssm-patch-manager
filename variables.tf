@@ -57,7 +57,7 @@ variable "notification_arn" {
   default     = ""
 }
 
-variable "role_arn_for_notification" {
+variable "sns_notification_role_arn" {
   description = "An Amazon Resource Name (ARN) for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic."
   type        = string
   default     = ""
@@ -80,7 +80,7 @@ variable "task_scan_priority" {
   default     = 1
 }
 
-variable "enable_notification_scan" {
+variable "scan_sns_notification_enabled" {
   description = "Enable/Disable the SNS notification for scans"
   type        = bool
   default     = false
@@ -121,7 +121,7 @@ variable "task_install_priority" {
   default     = 1
 }
 
-variable "enable_notification_install" {
+variable "install_sns_notification_enabled" {
   description = "Enable/disable the SNS notification for install patches"
   type        = bool
   default     = false

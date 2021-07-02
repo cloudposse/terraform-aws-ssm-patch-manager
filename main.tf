@@ -15,8 +15,8 @@ resource "aws_ssm_maintenance_window" "scan_window" {
   count    = local.enabled ? 1 : 0
   name     = module.scan_window_label.id
   schedule = var.scan_maintenance_window_schedule
-  duration = var.maintenance_window_duration
-  cutoff   = var.maintenance_window_cutoff
+  duration = var.scan_maintenance_window_duration
+  cutoff   = var.scan_maintenance_window_cutoff
 }
 
 resource "aws_ssm_maintenance_window_task" "task_scan_patches" {
@@ -128,7 +128,7 @@ resource "aws_ssm_maintenance_window_task" "task_install_patches" {
       }
       output_s3_bucket     = local.bucket_id
       output_s3_key_prefix = var.s3_bucket_prefix_install_logs
-      service_role_arn     = var.role_arn_for_notification
+      service_role_arn     = var.sns_notification_role_arn
 
       dynamic "notification_config" {
         for_each = var.enable_notification_install ? [1] : []

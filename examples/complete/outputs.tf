@@ -33,7 +33,7 @@ output "install_maintenance_window_target_id" {
   value       = module.ssm_patch_manager.install_maintenance_window_target_id
 }
 
-output "install_maintenance_window" {
+output "install_maintenance_window_id" {
   description = "SSM Patch Manager install maintenance window ID"
   value       = module.ssm_patch_manager.install_maintenance_window
 }
