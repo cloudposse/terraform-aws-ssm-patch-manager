@@ -15,7 +15,7 @@ resource "aws_ssm_maintenance_window" "scan_window" {
   count    = local.enabled ? 1 : 0
   name     = module.scan_window_label.id
   schedule = var.scan_maintenance_window_schedule
-  duration = var.maintenance_window_duration
+  duration = var.scan_maintenance_window_duration
   cutoff   = var.maintenance_window_cutoff
 }
 
