@@ -155,6 +155,8 @@ Available targets:
 
 | Name | Source | Version |
 |------|--------|---------|
+| <a name="module_install_window_label"></a> [install\_window\_label](#module\_install\_window\_label) | cloudposse/label/null | 0.24.1 |
+| <a name="module_scan_window_label"></a> [scan\_window\_label](#module\_scan\_window\_label) | cloudposse/label/null | 0.24.1 |
 | <a name="module_ssm_patch_log_s3_bucket"></a> [ssm\_patch\_log\_s3\_bucket](#module\_ssm\_patch\_log\_s3\_bucket) | cloudposse/s3-bucket/aws | 0.38.0 |
 | <a name="module_this"></a> [this](#module\_this) | cloudposse/label/null | 0.24.1 |
 
@@ -227,16 +229,16 @@ Available targets:
 
 | Name | Description |
 |------|-------------|
-| <a name="output_install_maintenance_window"></a> [install\_maintenance\_window](#output\_install\_maintenance\_window) | SSM Patch Manager install maintenance window ID |
-| <a name="output_install_maintenance_window_target"></a> [install\_maintenance\_window\_target](#output\_install\_maintenance\_window\_target) | SSM Patch Manager install maintenance window target id |
+| <a name="output_install_maintenance_window_id"></a> [install\_maintenance\_window\_id](#output\_install\_maintenance\_window\_id) | SSM Patch Manager install maintenance window ID |
+| <a name="output_install_maintenance_window_target"></a> [install\_maintenance\_window\_target](#output\_install\_maintenance\_window\_target) | SSM Patch Manager install maintenance window target ID |
 | <a name="output_install_maintenance_window_task_id"></a> [install\_maintenance\_window\_task\_id](#output\_install\_maintenance\_window\_task\_id) | SSM Patch Manager install maintenance windows task ID |
 | <a name="output_install_patch_group_id"></a> [install\_patch\_group\_id](#output\_install\_patch\_group\_id) | SSM Patch Manager install patch group ID |
-| <a name="output_patch_baseline_arn"></a> [patch\_baseline\_arn](#output\_patch\_baseline\_arn) | SSM Patch Manager patch baseline ARN |
-| <a name="output_scan_maintenance_window_target"></a> [scan\_maintenance\_window\_target](#output\_scan\_maintenance\_window\_target) | SSM Patch Manager scan maintenance window target |
+| <a name="output_patch_baseline_arn_arn"></a> [patch\_baseline\_arn\_arn](#output\_patch\_baseline\_arn\_arn) | SSM Patch Manager patch baseline ARN |
+| <a name="output_scan_maintenance_window_target_id"></a> [scan\_maintenance\_window\_target\_id](#output\_scan\_maintenance\_window\_target\_id) | SSM Patch Manager scan maintenance window target |
 | <a name="output_scan_maintenance_window_task_id"></a> [scan\_maintenance\_window\_task\_id](#output\_scan\_maintenance\_window\_task\_id) | SSM Patch Manager scan maintenance windows task ID |
 | <a name="output_scan_patch_group_id"></a> [scan\_patch\_group\_id](#output\_scan\_patch\_group\_id) | SSM Patch Manager scan patch group ID |
 | <a name="output_ssm_patch_log_s3_bucket_arn"></a> [ssm\_patch\_log\_s3\_bucket\_arn](#output\_ssm\_patch\_log\_s3\_bucket\_arn) | SSM Patch Manager s3 log bucket ARN |
-| <a name="output_ssm_patch_log_s3_bucket_id"></a> [ssm\_patch\_log\_s3\_bucket\_id](#output\_ssm\_patch\_log\_s3\_bucket\_id) | SSM Patch manager s3 log bucket ID |
+| <a name="output_ssm_patch_log_s3_bucket_id"></a> [ssm\_patch\_log\_s3\_bucket\_id](#output\_ssm\_patch\_log\_s3\_bucket\_id) | SSM Patch Manager s3 log bucket ID |
 <!-- markdownlint-restore -->
 
 
