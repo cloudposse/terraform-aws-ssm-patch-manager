@@ -25,7 +25,6 @@ resource "aws_s3_bucket_policy" "default" {
   count      = local.create_log_bucket ? 1 : 0
   bucket     = join("", module.ssm_patch_log_s3_bucket.*.bucket_id)
   policy     = local.bucket_policy
-  depends_on = [module.ssm_patch_log_s3_bucket.*.bucket_id]
 }
 
 
@@ -34,7 +33,7 @@ module "ssm_patch_log_s3_bucket" {
   source             = "cloudposse/s3-bucket/aws"
   version            = "0.38.0"
   acl                = "private"
-  versioning_enabled = false
+  versioning_enabled = var.ssm_bucket_versioning_enable
   policy             = aws_s3_bucket_policy.default.*.id
   context            = module.this.context
 }

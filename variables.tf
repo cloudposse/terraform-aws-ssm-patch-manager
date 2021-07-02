@@ -208,3 +208,9 @@ variable "bucket_id" {
   description = "The bucket ID to use for the patch log. If no bucket ID is provided, the module will create a new one."
   default     = null
 }
+
+variable "ssm_bucket_versioning_enable" {
+  type        = string
+  description = "To enable or disable S3 bucket versioning for the log bucket."
+  default     = true
+}

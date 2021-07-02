@@ -18,8 +18,6 @@ func TestExamplesComplete(t *testing.T) {
 	randID := strconv.Itoa(rand.Intn(100000))
 	attributes := []string{randID}
 
-	exampleInput := "Hello, world!"
-
 	terraformOptions := &terraform.Options{
 		// The path to where our Terraform code is located
 		TerraformDir: "../../examples/complete",
