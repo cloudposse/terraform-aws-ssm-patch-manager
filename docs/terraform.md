@@ -94,7 +94,7 @@
 | Name | Description |
 |------|-------------|
 | <a name="output_install_maintenance_window_id"></a> [install\_maintenance\_window\_id](#output\_install\_maintenance\_window\_id) | SSM Patch Manager install maintenance window ID |
-| <a name="output_install_maintenance_window_target"></a> [install\_maintenance\_window\_target](#output\_install\_maintenance\_window\_target) | SSM Patch Manager install maintenance window target ID |
+| <a name="output_install_maintenance_window_target_id"></a> [install\_maintenance\_window\_target\_id](#output\_install\_maintenance\_window\_target\_id) | SSM Patch Manager install maintenance window target ID |
 | <a name="output_install_maintenance_window_task_id"></a> [install\_maintenance\_window\_task\_id](#output\_install\_maintenance\_window\_task\_id) | SSM Patch Manager install maintenance windows task ID |
 | <a name="output_install_patch_group_id"></a> [install\_patch\_group\_id](#output\_install\_patch\_group\_id) | SSM Patch Manager install patch group ID |
 | <a name="output_patch_baseline_arn_arn"></a> [patch\_baseline\_arn\_arn](#output\_patch\_baseline\_arn\_arn) | SSM Patch Manager patch baseline ARN |
