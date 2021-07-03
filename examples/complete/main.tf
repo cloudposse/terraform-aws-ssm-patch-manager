@@ -11,7 +11,7 @@ module "subnets" {
   source  = "cloudposse/dynamic-subnets/aws"
   version = "0.39.3"
 
-  availability_zones = ["us-east-2a", "us-east-2b"]
+  availability_zones   = ["us-east-2a", "us-east-2b"]
   vpc_id               = module.vpc.vpc_id
   igw_id               = module.vpc.igw_id
   cidr_block           = module.vpc.vpc_cidr_block
@@ -60,12 +60,12 @@ module "ec2_instance" {
   source  = "cloudposse/ec2-instance/aws"
   version = "0.38.0"
 
-  vpc_id                      = module.vpc.vpc_id
-  subnet                      = module.subnets.private_subnet_ids[0]
-  security_groups             = [module.vpc.vpc_default_security_group_id]
+  vpc_id          = module.vpc.vpc_id
+  subnet          = module.subnets.private_subnet_ids[0]
+  security_groups = [module.vpc.vpc_default_security_group_id]
   #instance_profile            = aws_iam_instance_profile.test.name
-  ami                         = "ami-cc7a52a9"
-  ami_owner                   = "amazon"
+  ami          = "ami-cc7a52a9"
+  ami_owner    = "amazon"
   ssh_key_pair = ""
 
   # Enabling SSM Patch manager policy, access to the log bucket and the additional tags
@@ -76,7 +76,7 @@ module "ec2_instance" {
     "TOSCAN"    = "true",
     "TOINSTALL" = "true"
   }
-  context = module.this.context
+  context    = module.this.context
   depends_on = [module.ssm_patch_manager.ssm_patch_log_s3_bucket_id]
 }
 
