@@ -76,7 +76,7 @@ module "ec2_instance" {
     "TOSCAN"    = "true",
     "TOINSTALL" = "true"
   }
-  context    = module.this.context
+  context = module.this.context
   #depends_on = [module.ssm_patch_manager.ssm_patch_log_s3_bucket_id]
 }
 
