@@ -20,7 +20,7 @@ data "aws_iam_policy_document" "bucket_policy" {
       format("arn:aws:s3:::%s-%s-%s-%s/*", module.this.namespace, module.this.environment, module.this.stage, module.this.name)
     ]
 
-    principals {
+    principals = {
       identifiers = [format("arn:aws:iam::%s:root", local.account_id)]
       type        = "AWS"
     }
