@@ -28,19 +28,19 @@ module "ec2_instance" {
   vpc_id          = module.vpc.vpc_id
   subnet          = module.subnets.private_subnet_ids[0]
   security_groups = [module.vpc.vpc_default_security_group_id]
-  ami          = "ami-009b28ad8707b9ee8"
-  ami_owner    = "amazon"
-  ssh_key_pair = ""
+  ami             = "ami-009b28ad8707b9ee8"
+  ami_owner       = "amazon"
+  ssh_key_pair    = ""
 
   # Enabling SSM Patch manager policy, access to the log bucket and the additional tags
   ssm_patch_manager_enabled       = true
   ssm_patch_manager_s3_log_bucket = format("%s-%s-%s-%s", module.this.namespace, module.this.environment, module.this.stage, module.this.name)
 
   tags = {
-    "TOSCAN"    = "true",
+    "TOSCAN"  = "true",
     "TOPATCH" = "true"
   }
-  context    = module.this.context
+  context = module.this.context
 
 }
 
