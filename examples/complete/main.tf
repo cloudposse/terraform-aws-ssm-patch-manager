@@ -41,7 +41,7 @@ module "ec2_instance" {
     "TOPATCH" = "true"
   }
   context    = module.this.context
-  depends_on = [module.ssm_patch_manager.ssm_patch_log_s3_bucket_id]
+
 }
 
 module "ssm_patch_manager" {
