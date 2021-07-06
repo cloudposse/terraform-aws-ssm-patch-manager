@@ -15,46 +15,11 @@ module "subnets" {
   vpc_id               = module.vpc.vpc_id
   igw_id               = module.vpc.igw_id
   cidr_block           = module.vpc.vpc_cidr_block
-  nat_gateway_enabled  = false
+  nat_gateway_enabled  = true
   nat_instance_enabled = false
 
   context = module.this.context
 }
-
-# module "instance_profile_label" {
-#   source  = "cloudposse/label/null"
-#   version = "0.24.1"
-
-#   attributes = distinct(compact(concat(module.this.attributes, ["profile"])))
-
-#   context = module.this.context
-# }
-
-# data "aws_iam_policy_document" "test" {
-#   statement {
-#     effect = "Allow"
-
-#     actions = [
-#       "sts:AssumeRole"
-#     ]
-
-#     principals {
-#       type        = "Service"
-#       identifiers = ["ec2.amazonaws.com"]
-#     }
-#   }
-# }
-
-# resource "aws_iam_role" "test" {
-#   name               = module.instance_profile_label.id
-#   assume_role_policy = data.aws_iam_policy_document.test.json
-#   tags               = module.instance_profile_label.tags
-# }
-
-# resource "aws_iam_instance_profile" "test" {
-#   name = module.instance_profile_label.id
-#   role = aws_iam_role.test.name
-# }
 
 module "ec2_instance" {
   source  = "cloudposse/ec2-instance/aws"
@@ -63,8 +28,7 @@ module "ec2_instance" {
   vpc_id          = module.vpc.vpc_id
   subnet          = module.subnets.private_subnet_ids[0]
   security_groups = [module.vpc.vpc_default_security_group_id]
-  #instance_profile            = aws_iam_instance_profile.test.name
-  ami          = "ami-cc7a52a9"
+  ami          = "ami-009b28ad8707b9ee8"
   ami_owner    = "amazon"
   ssh_key_pair = ""
 
@@ -74,10 +38,10 @@ module "ec2_instance" {
 
   tags = {
     "TOSCAN"    = "true",
-    "TOINSTALL" = "true"
+    "TOPATCH" = "true"
   }
   context    = module.this.context
-  #depends_on = [module.ssm_patch_manager.ssm_patch_log_s3_bucket_id]
+  depends_on = [module.ssm_patch_manager.ssm_patch_log_s3_bucket_id]
 }
 
 module "ssm_patch_manager" {

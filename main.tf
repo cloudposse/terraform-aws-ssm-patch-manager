@@ -2,6 +2,8 @@ locals {
   enabled = module.this.enabled
 }
 
+data "aws_caller_identity" "current" {}
+
 module "scan_window_label" {
   source  = "cloudposse/label/null"
   version = "0.24.1"
