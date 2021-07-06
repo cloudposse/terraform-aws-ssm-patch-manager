@@ -36,5 +36,5 @@ module "ssm_patch_log_s3_bucket" {
   versioning_enabled = var.ssm_bucket_versioning_enable
   policy             = local.bucket_policy
   context            = module.this.context
-  depends_on = [data.aws_iam_policy_document.bucket_policy]
+  depends_on         = [data.aws_iam_policy_document.bucket_policy]
 }
