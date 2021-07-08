@@ -10,12 +10,12 @@ module "ssm_patch_log_s3_bucket_label" {
   source  = "cloudposse/label/null"
   version = "0.24.1"
 
-  enabled    = local.create_log_bucket
+  enabled = local.create_log_bucket
   # attributes = ["scan-window"]
-  context    = module.this.context
+  context = module.this.context
 }
 data "aws_iam_policy_document" "bucket_policy" {
-  count   = local.create_log_bucket ? 1 : 0
+  count = local.create_log_bucket ? 1 : 0
   statement {
     effect = "Allow"
     actions = [
