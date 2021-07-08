@@ -34,11 +34,11 @@ func TestExamplesComplete(t *testing.T) {
 	defer terraform.Destroy(t, terraformOptions)
 
 	// This will run `terraform init` and `terraform apply` and fail the test if there are any errors
-	terraform.InitAndApply(t, terraformOptions)
+	terraform.Apply(t, terraformOptions)
 
-	maintenanceWindowTaskId := terraform.Output(t, terraformOptions, "scan_maintenance_window_task_id")
-	expectedMaintenanceWindowTaskId := "eg-test-ssm-patch-test-" + attributes[0]
+	installPatchGroupId := terraform.Output(t, terraformOptions, "install_patch_group_id")
+	expectedinstallPatchGroupId := "TOPATCH"
 	// Verify we're getting back the outputs we expect
-	assert.Equal(t, expectedMaintenanceWindowTaskId, maintenanceWindowTaskId)
+	assert.Contains(t, installPatchGroupId, expectedinstallPatchGroupId)
 
 }
