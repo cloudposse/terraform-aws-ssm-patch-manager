@@ -1,11 +1,11 @@
 output "ssm_patch_log_s3_bucket_id" {
   description = "SSM Patch Manager s3 log bucket ID"
-  value       = module.ssm_patch_log_s3_bucket[0].bucket_id
+  value       = local.create_log_bucket ? join("", module.ssm_patch_log_s3_bucket[0].bucket_id) : ""
 }
 
 output "ssm_patch_log_s3_bucket_arn" {
   description = "SSM Patch Manager s3 log bucket ARN"
-  value       = module.ssm_patch_log_s3_bucket[0].bucket_arn
+  value       = local.create_log_bucket ? join("", module.ssm_patch_log_s3_bucket[0].bucket_arn) : ""
 }
 
 output "scan_maintenance_window_task_id" {
