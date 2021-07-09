@@ -28,7 +28,7 @@
 
 -->
 
-This module provisions AWS SSM Patch manager maintenance window tasks, targets, patch baselines and patch groups and an s3 bucket for storing patch task logs.
+This module provisions AWS SSM Patch manager maintenance window tasks, targets, patch baselines and patch groups and a s3 bucket for storing patch task logs.
 
 ---
 
@@ -106,7 +106,7 @@ For automated tests of the complete example using [bats](https://github.com/bats
 
 ```hcl
 module "ssm_patch_manager" {
-  source  = "cloudposse/xxxxx/aws"
+  source  = "cloudposse/ssm-patch-manager/aws"
   version = "xxxx"
   name = "test"
 }
