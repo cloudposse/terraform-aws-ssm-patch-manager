@@ -1,6 +1,6 @@
 output "ssm_patch_log_s3_bucket_id" {
   description = "SSM Patch Manager s3 log bucket ID"
-  value       = local.create_log_bucket ? join("", module.ssm_patch_log_s3_bucket[0].bucket_id) : ""
+  value       = local.create_log_bucket ? join("", module.ssm_patch_log_s3_bucket.*.bucket_id) : ""
 }
 
 output "ssm_patch_log_s3_bucket_arn" {
