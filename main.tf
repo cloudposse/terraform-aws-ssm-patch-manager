@@ -6,7 +6,7 @@ data "aws_caller_identity" "current" {}
 
 module "scan_window_label" {
   source  = "cloudposse/label/null"
-  version = "0.24.1"
+  version = "0.25.0"
 
   enabled    = local.enabled
   attributes = ["scan-window"]
@@ -88,7 +88,7 @@ resource "aws_ssm_maintenance_window_target" "target_scan" {
 
 module "install_window_label" {
   source  = "cloudposse/label/null"
-  version = "0.24.1"
+  version = "0.25.0"
 
   enabled    = local.enabled
   attributes = ["install-window"]

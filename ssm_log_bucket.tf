@@ -8,7 +8,7 @@ locals {
 
 module "ssm_patch_log_s3_bucket_label" {
   source  = "cloudposse/label/null"
-  version = "0.24.1"
+  version = "0.25.0"
 
   enabled = local.create_log_bucket
   # attributes = ["scan-window"]
