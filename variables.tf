@@ -170,39 +170,9 @@ variable "rejected_patches" {
 
 variable "patch_baseline_approval_rules" {
   description = "A set of rules used to include patches in the baseline. Up to 10 approval rules can be specified. Each `approval_rule` block requires the fields documented below."
-  type = list(object({
-    approve_after_days : number
-    compliance_level : string
-    enable_non_security : bool
-    patch_baseline_filters : list(object({
-      name : string
-      values : list(string)
-    }))
-  }))
-
-  default = [
-    {
-      approve_after_days  = 7
-      compliance_level    = "HIGH"
-      enable_non_security = true
-      patch_baseline_filters = [
-        {
-          name   = "PRODUCT"
-          values = ["AmazonLinux2", "AmazonLinux2.0"]
-        },
-        {
-          name   = "CLASSIFICATION"
-          values = ["Security", "Bugfix", "Recommended"]
-        },
-        {
-          name   = "SEVERITY"
-          values = ["Critical", "Important", "Medium"]
-        }
-      ]
-    }
-  ]
-
+  type = any
 }
+
 variable "approved_patches_compliance_level" {
   type        = string
   description = "Defines the compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. Valid compliance levels include the following: CRITICAL, HIGH, MEDIUM, LOW, INFORMATIONAL, UNSPECIFIED. The default value is UNSPECIFIED."

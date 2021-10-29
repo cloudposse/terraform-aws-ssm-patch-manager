@@ -178,20 +178,21 @@ resource "aws_ssm_patch_baseline" "baseline" {
   approved_patches_compliance_level = var.approved_patches_compliance_level
 
   dynamic "approval_rule" {
-    for_each = toset(var.patch_baseline_approval_rules)
+    for_each = var.patch_baseline_approval_rules
     content {
 
-      approve_after_days  = approval_rule.value.approve_after_days
-      compliance_level    = approval_rule.value.compliance_level
-      enable_non_security = approval_rule.value.enable_non_security
+      approve_after_days  = approval_rule.value["approve_after_days"]
+      approve_until_date  = approval_rule.value["approve_until_date"]
+      compliance_level    = approval_rule.value["compliance_level"]
+      enable_non_security = approval_rule.value["enable_non_security"]
 
       # https://docs.aws.amazon.com/cli/latest/reference/ssm/describe-patch-properties.html
       dynamic "patch_filter" {
-        for_each = approval_rule.value.patch_baseline_filters
+        for_each = approval_rule.value["patch_baseline_filters"]
 
         content {
-          key    = patch_filter.value.name
-          values = patch_filter.value.values
+          key    = patch_filter.value["name"]
+          values = patch_filter.value["values"]
         }
       }
     }
