@@ -1,7 +1,7 @@
 variable "region" {
   type        = string
   description = "AWS region"
-  default = "us-east-1"
+  default     = "us-east-1"
 }
 
 variable "patch_baseline_approval_rules" {
@@ -9,24 +9,24 @@ variable "patch_baseline_approval_rules" {
   type        = any
   default = [
     {
-    approve_until_date  = null
-    approve_after_days  = "7"
-    compliance_level    = "HIGH"
-    enable_non_security = true
-    patch_baseline_filters = [
-      {
-        name   = "PRODUCT"
-        values = ["AmazonLinux2", "AmazonLinux2.0"]
-      },
-      {
-        name   = "CLASSIFICATION"
-        values = ["Security", "Bugfix", "Recommended"]
-      },
-      {
-        name   = "SEVERITY"
-        values = ["Critical", "Important"]
-      }
-    ]
+      approve_until_date  = null
+      approve_after_days  = "7"
+      compliance_level    = "HIGH"
+      enable_non_security = true
+      patch_baseline_filters = [
+        {
+          name   = "PRODUCT"
+          values = ["AmazonLinux2", "AmazonLinux2.0"]
+        },
+        {
+          name   = "CLASSIFICATION"
+          values = ["Security", "Bugfix", "Recommended"]
+        },
+        {
+          name   = "SEVERITY"
+          values = ["Critical", "Important"]
+        }
+      ]
     },
     {
       approve_until_date  = "2021-08-30"

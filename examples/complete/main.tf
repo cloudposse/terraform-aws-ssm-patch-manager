@@ -22,9 +22,9 @@ module "subnets" {
 }
 
 module "ec2_instance" {
-  source  = "cloudposse/ec2-instance/aws"
-  version = "0.38.0"
-  name                 = "myfirstpr"
+  source          = "cloudposse/ec2-instance/aws"
+  version         = "0.38.0"
+  name            = "myfirstpr"
   vpc_id          = module.vpc.vpc_id
   subnet          = module.subnets.private_subnet_ids[0]
   security_groups = [module.vpc.vpc_default_security_group_id]
@@ -45,8 +45,8 @@ module "ec2_instance" {
 }
 
 module "ssm_patch_manager" {
-  source = "../.."
-  region = var.region
+  source                        = "../.."
+  region                        = var.region
   patch_baseline_approval_rules = var.patch_baseline_approval_rules
 
   context = module.this.context
