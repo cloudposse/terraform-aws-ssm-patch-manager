@@ -1,10 +1,10 @@
 locals {
   account_id        = data.aws_caller_identity.current.account_id
+  aws_partition     = data.aws_partition.current.partition
   create_log_bucket = local.enabled && var.bucket_id == null
   bucket_id         = var.bucket_id != null ? var.bucket_id : module.ssm_patch_log_s3_bucket_label.id
   bucket_policy     = var.ssm_bucket_policy != null ? var.ssm_bucket_policy : try(data.aws_iam_policy_document.bucket_policy[0].json, "")
 }
-
 
 module "ssm_patch_log_s3_bucket_label" {
   source  = "cloudposse/label/null"
@@ -26,12 +26,12 @@ data "aws_iam_policy_document" "bucket_policy" {
     ]
 
     resources = [
-      format("arn:aws:s3:::%s", module.ssm_patch_log_s3_bucket_label.id),
-      format("arn:aws:s3:::%s/*", module.ssm_patch_log_s3_bucket_label.id)
+      format("arn:%s:s3:::%s", local.aws_partition, module.ssm_patch_log_s3_bucket_label.id),
+      format("arn:%s:s3:::%s/*", local.aws_partition, module.ssm_patch_log_s3_bucket_label.id)
     ]
 
     principals {
-      identifiers = [format("arn:aws:iam::%s:root", local.account_id)]
+      identifiers = [format("arn:%s:iam::%s:root", local.aws_partition, local.account_id)]
       type        = "AWS"
     }
   }

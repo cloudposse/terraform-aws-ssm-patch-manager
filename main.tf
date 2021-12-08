@@ -3,6 +3,7 @@ locals {
 }
 
 data "aws_caller_identity" "current" {}
+data "aws_partition" "current" {}
 
 module "scan_window_label" {
   source  = "cloudposse/label/null"
