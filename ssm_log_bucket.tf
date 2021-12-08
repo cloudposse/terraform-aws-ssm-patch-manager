@@ -6,6 +6,7 @@ locals {
   bucket_policy     = var.ssm_bucket_policy != null ? var.ssm_bucket_policy : try(data.aws_iam_policy_document.bucket_policy[0].json, "")
 }
 
+
 module "ssm_patch_log_s3_bucket_label" {
   source  = "cloudposse/label/null"
   version = "0.25.0"
