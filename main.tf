@@ -3,11 +3,11 @@ locals {
 }
 
 data "aws_caller_identity" "current" {
-  count    = local.enabled ? 1 : 0
+  count = local.enabled ? 1 : 0
 }
 
 data "aws_partition" "current" {
-  count    = local.enabled ? 1 : 0
+  count = local.enabled ? 1 : 0
 }
 
 module "scan_window_label" {
