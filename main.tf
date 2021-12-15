@@ -2,7 +2,13 @@ locals {
   enabled = module.this.enabled
 }
 
-data "aws_caller_identity" "current" {}
+data "aws_caller_identity" "current" {
+  count = local.enabled ? 1 : 0
+}
+
+data "aws_partition" "current" {
+  count = local.enabled ? 1 : 0
+}
 
 module "scan_window_label" {
   source  = "cloudposse/label/null"
