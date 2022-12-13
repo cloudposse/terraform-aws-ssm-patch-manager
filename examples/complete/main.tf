@@ -28,7 +28,7 @@ module "ec2_instance" {
   vpc_id          = module.vpc.vpc_id
   subnet          = module.subnets.private_subnet_ids[0]
   security_groups = [module.vpc.vpc_default_security_group_id]
-  ami             = "ami-009b28ad8707b9ee8"
+  ami             = "ami-0beaa649c482330f7"
   ami_owner       = "amazon"
   ssh_key_pair    = ""
 

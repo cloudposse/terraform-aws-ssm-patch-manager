@@ -43,8 +43,8 @@ module "ssm_patch_log_s3_bucket" {
   source  = "cloudposse/s3-bucket/aws"
   version = "2.0.0"
 
-  acl                = "private"
-  versioning_enabled = var.ssm_bucket_versioning_enable
-  policy             = local.bucket_policy
-  context            = module.ssm_patch_log_s3_bucket_label.context
+  acl                     = "private"
+  versioning_enabled      = var.ssm_bucket_versioning_enable
+  source_policy_documents = [local.bucket_policy]
+  context                 = module.ssm_patch_log_s3_bucket_label.context
 }
