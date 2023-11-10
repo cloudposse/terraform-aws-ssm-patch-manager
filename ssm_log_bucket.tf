@@ -1,6 +1,6 @@
 locals {
-  account_id        = join("", data.aws_caller_identity.current.*.account_id)
-  aws_partition     = join("", data.aws_partition.current.*.partition)
+  account_id        = join("", data.aws_caller_identity.current[*].account_id)
+  aws_partition     = join("", data.aws_partition.current[*].partition)
   create_log_bucket = local.enabled && var.bucket_id == null
   bucket_id         = var.bucket_id != null ? var.bucket_id : module.ssm_patch_log_s3_bucket_label.id
   bucket_policy     = var.ssm_bucket_policy != null ? var.ssm_bucket_policy : try(data.aws_iam_policy_document.bucket_policy[0].json, "")
@@ -41,7 +41,7 @@ data "aws_iam_policy_document" "bucket_policy" {
 module "ssm_patch_log_s3_bucket" {
   count   = local.create_log_bucket ? 1 : 0
   source  = "cloudposse/s3-bucket/aws"
-  version = "2.0.0"
+  version = "3.1.2"
 
   acl                     = "private"
   versioning_enabled      = var.ssm_bucket_versioning_enable
