@@ -33,12 +33,6 @@ This module provisions AWS SSM Patch manager maintenance window tasks, targets, 
 ---
 
 This project is part of our comprehensive ["SweetOps"](https://cpco.io/sweetops) approach towards DevOps.
-[<img align="right" title="Share via Email" src="https://docs.cloudposse.com/images/ionicons/ios-email-outline-2.0.1-16x16-999999.svg"/>][share_email]
-[<img align="right" title="Share on Google+" src="https://docs.cloudposse.com/images/ionicons/social-googleplus-outline-2.0.1-16x16-999999.svg" />][share_googleplus]
-[<img align="right" title="Share on Facebook" src="https://docs.cloudposse.com/images/ionicons/social-facebook-outline-2.0.1-16x16-999999.svg" />][share_facebook]
-[<img align="right" title="Share on Reddit" src="https://docs.cloudposse.com/images/ionicons/social-reddit-outline-2.0.1-16x16-999999.svg" />][share_reddit]
-[<img align="right" title="Share on LinkedIn" src="https://docs.cloudposse.com/images/ionicons/social-linkedin-outline-2.0.1-16x16-999999.svg" />][share_linkedin]
-[<img align="right" title="Share on Twitter" src="https://docs.cloudposse.com/images/ionicons/social-twitter-outline-2.0.1-16x16-999999.svg" />][share_twitter]
 
 
 [![Terraform Open Source Modules](https://docs.cloudposse.com/images/terraform-open-source-modules.svg)][terraform_modules]
@@ -94,10 +88,6 @@ We highly recommend that in your code you pin the version to the exact version y
 using so that your infrastructure remains stable, and update versions in a
 systematic way so that they do not catch you by surprise.
 
-Also, because of a bug in the Terraform registry ([hashicorp/terraform#21417](https://github.com/hashicorp/terraform/issues/21417)),
-the registry shows many of our inputs as required when in fact they are optional.
-The table below correctly indicates which inputs are required.
-
 
 For a complete example, see [examples/complete](examples/complete).
 
@@ -139,7 +129,7 @@ Available targets:
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.3 |
 | <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 4.0 |
 
 ## Providers
@@ -154,7 +144,7 @@ Available targets:
 |------|--------|---------|
 | <a name="module_install_window_label"></a> [install\_window\_label](#module\_install\_window\_label) | cloudposse/label/null | 0.25.0 |
 | <a name="module_scan_window_label"></a> [scan\_window\_label](#module\_scan\_window\_label) | cloudposse/label/null | 0.25.0 |
-| <a name="module_ssm_patch_log_s3_bucket"></a> [ssm\_patch\_log\_s3\_bucket](#module\_ssm\_patch\_log\_s3\_bucket) | cloudposse/s3-bucket/aws | 2.0.0 |
+| <a name="module_ssm_patch_log_s3_bucket"></a> [ssm\_patch\_log\_s3\_bucket](#module\_ssm\_patch\_log\_s3\_bucket) | cloudposse/s3-bucket/aws | 3.1.2 |
 | <a name="module_ssm_patch_log_s3_bucket_label"></a> [ssm\_patch\_log\_s3\_bucket\_label](#module\_ssm\_patch\_log\_s3\_bucket\_label) | cloudposse/label/null | 0.25.0 |
 | <a name="module_this"></a> [this](#module\_this) | cloudposse/label/null | 0.25.0 |
 
@@ -252,8 +242,6 @@ Available targets:
 
 Like this project? Please give it a ★ on [our GitHub](https://github.com/cloudposse/terraform-aws-ssm-patch-manager)! (it helps us **a lot**)
 
-Are you using this project or any of our other projects? Consider [leaving a testimonial][testimonial]. =)
-
 
 
 ## Related Projects
@@ -307,10 +295,6 @@ We deliver 10x the value for a fraction of the cost of a full-time engineer. Our
 
 Join our [Open Source Community][slack] on Slack. It's **FREE** for everyone! Our "SweetOps" community is where you get to talk with others who share a similar vision for how to rollout and manage infrastructure. This is the best place to talk shop, ask questions, solicit feedback, and work together as a community to build totally *sweet* infrastructure.
 
-## Discourse Forums
-
-Participate in our [Discourse Forums][discourse]. Here you'll find answers to commonly asked questions. Most questions will be related to the enormous number of projects we support on our GitHub. Come here to collaborate on answers, find solutions, and get ideas about the products and services we value. It only takes a minute to get started! Just sign in with SSO using your GitHub account.
-
 ## Newsletter
 
 Sign up for [our newsletter][newsletter] that covers everything on our technology radar.  Receive updates on what we're up to on GitHub as well as awesome new projects we discover.
@@ -321,7 +305,18 @@ Sign up for [our newsletter][newsletter] that covers everything on our technolog
 
 [![zoom](https://img.cloudposse.com/fit-in/200x200/https://cloudposse.com/wp-content/uploads/2019/08/Powered-by-Zoom.png")][office_hours]
 
-## Contributing
+## ✨ Contributing
+
+
+
+This project is under active development, and we encourage contributions from our community. 
+Many thanks to our outstanding contributors:
+
+<a href="https://github.com/cloudposse/terraform-aws-ssm-patch-manager/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=cloudposse/terraform-aws-ssm-patch-manager&max=24" />
+</a>
+
+
 
 ### Bug Reports & Feature Requests
 
@@ -398,21 +393,7 @@ We're a [DevOps Professional Services][hire] company based in Los Angeles, CA. W
 
 We offer [paid support][commercial_support] on all of our projects.
 
-Check out [our other projects][github], [follow us on twitter][twitter], [apply for a job][jobs], or [hire us][hire] to help with your cloud strategy and implementation.
-
-
-
-### Contributors
-
-<!-- markdownlint-disable -->
-|  [![PePe Amengual][jamengual_avatar]][jamengual_homepage]<br/>[PePe Amengual][jamengual_homepage] |
-|---|
-<!-- markdownlint-restore -->
-
-  [jamengual_homepage]: https://github.com/jamengual
-  [jamengual_avatar]: https://img.cloudposse.com/150x150/https://github.com/jamengual.png
-
-[![README Footer][readme_footer_img]][readme_footer_link]
+Check out [our other projects][github], [follow us on twitter][twitter], [apply for a job][jobs], or [hire us][hire] to help with your cloud strategy and implementation.[![README Footer][readme_footer_img]][readme_footer_link]
 [![Beacon][beacon]][website]
 <!-- markdownlint-disable -->
   [logo]: https://cloudposse.com/logo-300x69.svg
@@ -422,12 +403,10 @@ Check out [our other projects][github], [follow us on twitter][twitter], [apply 
   [jobs]: https://cpco.io/jobs?utm_source=github&utm_medium=readme&utm_campaign=cloudposse/terraform-aws-ssm-patch-manager&utm_content=jobs
   [hire]: https://cpco.io/hire?utm_source=github&utm_medium=readme&utm_campaign=cloudposse/terraform-aws-ssm-patch-manager&utm_content=hire
   [slack]: https://cpco.io/slack?utm_source=github&utm_medium=readme&utm_campaign=cloudposse/terraform-aws-ssm-patch-manager&utm_content=slack
-  [linkedin]: https://cpco.io/linkedin?utm_source=github&utm_medium=readme&utm_campaign=cloudposse/terraform-aws-ssm-patch-manager&utm_content=linkedin
   [twitter]: https://cpco.io/twitter?utm_source=github&utm_medium=readme&utm_campaign=cloudposse/terraform-aws-ssm-patch-manager&utm_content=twitter
   [testimonial]: https://cpco.io/leave-testimonial?utm_source=github&utm_medium=readme&utm_campaign=cloudposse/terraform-aws-ssm-patch-manager&utm_content=testimonial
   [office_hours]: https://cloudposse.com/office-hours?utm_source=github&utm_medium=readme&utm_campaign=cloudposse/terraform-aws-ssm-patch-manager&utm_content=office_hours
   [newsletter]: https://cpco.io/newsletter?utm_source=github&utm_medium=readme&utm_campaign=cloudposse/terraform-aws-ssm-patch-manager&utm_content=newsletter
-  [discourse]: https://ask.sweetops.com/?utm_source=github&utm_medium=readme&utm_campaign=cloudposse/terraform-aws-ssm-patch-manager&utm_content=discourse
   [email]: https://cpco.io/email?utm_source=github&utm_medium=readme&utm_campaign=cloudposse/terraform-aws-ssm-patch-manager&utm_content=email
   [commercial_support]: https://cpco.io/commercial-support?utm_source=github&utm_medium=readme&utm_campaign=cloudposse/terraform-aws-ssm-patch-manager&utm_content=commercial_support
   [we_love_open_source]: https://cpco.io/we-love-open-source?utm_source=github&utm_medium=readme&utm_campaign=cloudposse/terraform-aws-ssm-patch-manager&utm_content=we_love_open_source
@@ -438,11 +417,5 @@ Check out [our other projects][github], [follow us on twitter][twitter], [apply 
   [readme_footer_link]: https://cloudposse.com/readme/footer/link?utm_source=github&utm_medium=readme&utm_campaign=cloudposse/terraform-aws-ssm-patch-manager&utm_content=readme_footer_link
   [readme_commercial_support_img]: https://cloudposse.com/readme/commercial-support/img
   [readme_commercial_support_link]: https://cloudposse.com/readme/commercial-support/link?utm_source=github&utm_medium=readme&utm_campaign=cloudposse/terraform-aws-ssm-patch-manager&utm_content=readme_commercial_support_link
-  [share_twitter]: https://twitter.com/intent/tweet/?text=terraform-aws-ssm-patch-manager&url=https://github.com/cloudposse/terraform-aws-ssm-patch-manager
-  [share_linkedin]: https://www.linkedin.com/shareArticle?mini=true&title=terraform-aws-ssm-patch-manager&url=https://github.com/cloudposse/terraform-aws-ssm-patch-manager
-  [share_reddit]: https://reddit.com/submit/?url=https://github.com/cloudposse/terraform-aws-ssm-patch-manager
-  [share_facebook]: https://facebook.com/sharer/sharer.php?u=https://github.com/cloudposse/terraform-aws-ssm-patch-manager
-  [share_googleplus]: https://plus.google.com/share?url=https://github.com/cloudposse/terraform-aws-ssm-patch-manager
-  [share_email]: mailto:?subject=terraform-aws-ssm-patch-manager&body=https://github.com/cloudposse/terraform-aws-ssm-patch-manager
   [beacon]: https://ga-beacon.cloudposse.com/UA-76589703-4/cloudposse/terraform-aws-ssm-patch-manager?pixel&cs=github&cm=readme&an=terraform-aws-ssm-patch-manager
 <!-- markdownlint-restore -->
