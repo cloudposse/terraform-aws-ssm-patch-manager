@@ -18,7 +18,7 @@
 |------|--------|---------|
 | <a name="module_install_window_label"></a> [install\_window\_label](#module\_install\_window\_label) | cloudposse/label/null | 0.25.0 |
 | <a name="module_scan_window_label"></a> [scan\_window\_label](#module\_scan\_window\_label) | cloudposse/label/null | 0.25.0 |
-| <a name="module_ssm_patch_log_s3_bucket"></a> [ssm\_patch\_log\_s3\_bucket](#module\_ssm\_patch\_log\_s3\_bucket) | cloudposse/s3-bucket/aws | 4.0.0 |
+| <a name="module_ssm_patch_log_s3_bucket"></a> [ssm\_patch\_log\_s3\_bucket](#module\_ssm\_patch\_log\_s3\_bucket) | cloudposse/s3-bucket/aws | 4.0.1 |
 | <a name="module_ssm_patch_log_s3_bucket_label"></a> [ssm\_patch\_log\_s3\_bucket\_label](#module\_ssm\_patch\_log\_s3\_bucket\_label) | cloudposse/label/null | 0.25.0 |
 | <a name="module_this"></a> [this](#module\_this) | cloudposse/label/null | 0.25.0 |
 
