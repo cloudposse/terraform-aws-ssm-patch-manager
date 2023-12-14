@@ -53,7 +53,7 @@ resource "aws_ssm_maintenance_window_task" "task_scan_patches" {
         values = ["NoReboot"]
       }
       output_s3_bucket     = local.bucket_id
-      output_s3_key_prefix = "scaning"
+      output_s3_key_prefix = "scanning"
       service_role_arn     = var.sns_notification_role_arn
 
       dynamic "notification_config" {
