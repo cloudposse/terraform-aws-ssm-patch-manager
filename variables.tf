@@ -1,3 +1,4 @@
+# tflint-ignore: terraform_unused_declarations
 variable "region" {
   type        = string
   description = "AWS region"
