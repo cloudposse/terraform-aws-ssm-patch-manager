@@ -37,9 +37,9 @@ module "ec2_instance" {
   ssm_patch_manager_s3_log_bucket = format("%s-%s-%s-%s", module.this.namespace, module.this.environment, module.this.stage, module.this.name)
 
   tags = {
-    "TOSCAN"  = "true",
-    "TOPATCH" = "true"
+    "Patch Group": "TOPATCH",
   }
+
   context = module.this.context
 
 }
