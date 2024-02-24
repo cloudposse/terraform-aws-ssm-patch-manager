@@ -202,7 +202,8 @@ resource "aws_ssm_patch_baseline" "baseline" {
       }
     }
   }
-  tags = var.tags
+
+  tags = module.this.tags
 }
 
 resource "aws_ssm_patch_group" "install_patchgroup" {
