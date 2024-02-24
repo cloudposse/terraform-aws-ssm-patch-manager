@@ -23,7 +23,7 @@ module "subnets" {
 
 module "ec2_instance" {
   source  = "cloudposse/ec2-instance/aws"
-  version = "1.1.1"
+  version = "1.2.1"
 
   vpc_id          = module.vpc.vpc_id
   subnet          = module.subnets.private_subnet_ids[0]
