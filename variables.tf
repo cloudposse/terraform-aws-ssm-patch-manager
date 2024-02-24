@@ -117,9 +117,15 @@ variable "install_maintenance_window_schedule" {
 }
 
 variable "s3_bucket_prefix_install_logs" {
-  description = "The Amazon S3 bucket subfolder"
+  description = "The Amazon S3 bucket subfolder for install logs"
   type        = string
   default     = "install"
+}
+
+variable "s3_bucket_prefix_scan_logs" {
+  description = "The Amazon S3 bucket subfolder for scan logs"
+  type        = string
+  default     = "scanning"
 }
 
 variable "task_install_priority" {
