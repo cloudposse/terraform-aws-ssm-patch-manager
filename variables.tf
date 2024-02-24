@@ -211,9 +211,9 @@ variable "ssm_bucket_policy" {
 }
 
 variable "bucket_id" {
-  type        = string
-  description = "The bucket ID to use for the patch log. If no bucket ID is provided, the module will create a new one."
-  default     = null
+  type        = list(string)
+  description = "The bucket ID to use for the patch log. If no bucket ID is provided, the module will create a new one. This is of type `list(string)` to work around #41 / https://github.com/hashicorp/terraform/issues/28962."
+  default     = []
 }
 
 variable "ssm_bucket_versioning_enable" {
