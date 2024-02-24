@@ -164,9 +164,16 @@ variable "rejected_patches" {
 }
 
 variable "patch_baseline_approval_rules" {
-  description = "A set of rules used to include patches in the baseline. Up to 10 approval rules can be specified. Each `approval_rule` block requires the fields documented below."
+  description = <<EOT
+    A set of rules used to include patches in the baseline. Up to 10 approval rules can be specified.
+    Each `approval_rule` block requires the fields documented below (unless marked optional).
+    `approve_after_days` and `approve_until_date` conflict, do not set both in the same `approval_rule`.
+
+    See https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ssm_patch_baseline#approval_rule-block for full details.
+  EOT
   type = list(object({
-    approve_after_days : number
+    approve_after_days : optional(number)
+    approve_until_date : optional(string)
     compliance_level : string
     enable_non_security : bool
     patch_baseline_filters : list(object({

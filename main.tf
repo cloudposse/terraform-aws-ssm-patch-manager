@@ -188,6 +188,7 @@ resource "aws_ssm_patch_baseline" "baseline" {
     content {
 
       approve_after_days  = approval_rule.value.approve_after_days
+      approve_until_date  = approval_rule.value.approve_until_date
       compliance_level    = approval_rule.value.compliance_level
       enable_non_security = approval_rule.value.enable_non_security
 
