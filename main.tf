@@ -53,7 +53,7 @@ resource "aws_ssm_maintenance_window_task" "task_scan_patches" {
         values = ["NoReboot"]
       }
       output_s3_bucket     = local.bucket_id
-      output_s3_key_prefix = "scaning"
+      output_s3_key_prefix = var.s3_bucket_prefix_scan_logs
       service_role_arn     = var.sns_notification_role_arn
 
       dynamic "notification_config" {
@@ -188,6 +188,7 @@ resource "aws_ssm_patch_baseline" "baseline" {
     content {
 
       approve_after_days  = approval_rule.value.approve_after_days
+      approve_until_date  = approval_rule.value.approve_until_date
       compliance_level    = approval_rule.value.compliance_level
       enable_non_security = approval_rule.value.enable_non_security
 
@@ -202,7 +203,8 @@ resource "aws_ssm_patch_baseline" "baseline" {
       }
     }
   }
-  tags = var.tags
+
+  tags = module.this.tags
 }
 
 resource "aws_ssm_patch_group" "install_patchgroup" {
