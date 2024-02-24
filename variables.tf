@@ -1,8 +1,3 @@
-variable "region" {
-  type        = string
-  description = "AWS region"
-}
-
 variable "scan_maintenance_window_duration" {
   description = "The duration of the maintenence windows (hours)"
   type        = number
