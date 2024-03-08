@@ -234,3 +234,21 @@ variable "ssm_bucket_versioning_enable" {
   description = "To enable or disable S3 bucket versioning for the log bucket."
   default     = true
 }
+
+variable "s3_log_output_enabled" {
+  type        = bool
+  description = "To enable or disable s3 bucket output for the runCommand logs"
+  default     = true
+}
+
+variable "cloudwatch_log_output_enabled" {
+  type        = bool
+  description = "Enables Systems Manager to send command output to CloudWatch Logs."
+  default     = false
+}
+
+variable "cloudwatch_log_group_name" {
+  type        = string
+  description = "The name of the CloudWatch log group where you want to send command output. If you don't specify a group name, Systems Manager automatically creates a log group for you. The log group uses the following naming format: aws/ssm/SystemsManagerDocumentName."
+  default     = null
+}

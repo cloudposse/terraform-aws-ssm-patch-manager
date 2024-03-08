@@ -52,8 +52,8 @@ resource "aws_ssm_maintenance_window_task" "task_scan_patches" {
         name   = "RebootOption"
         values = ["NoReboot"]
       }
-      output_s3_bucket     = local.bucket_id
-      output_s3_key_prefix = var.s3_bucket_prefix_scan_logs
+      output_s3_bucket     = var.s3_log_output_enabled ? local.bucket_id : null
+      output_s3_key_prefix = var.s3_log_output_enabled ? var.s3_bucket_prefix_scan_logs : null
       service_role_arn     = var.sns_notification_role_arn
 
       dynamic "notification_config" {
@@ -62,6 +62,14 @@ resource "aws_ssm_maintenance_window_task" "task_scan_patches" {
           notification_arn    = var.notification_arn
           notification_events = var.notification_events
           notification_type   = var.notification_type
+        }
+      }
+
+      dynamic "cloudwatch_config" {
+        for_each = var.cloudwatch_log_output_enabled ? [1] : []
+        content {
+          cloudwatch_output_enabled = var.cloudwatch_log_output_enabled
+          cloudwatch_log_group_name = var.cloudwatch_log_group_name
         }
       }
     }
@@ -134,8 +142,8 @@ resource "aws_ssm_maintenance_window_task" "task_install_patches" {
         name   = "RebootOption"
         values = [var.reboot_option]
       }
-      output_s3_bucket     = local.bucket_id
-      output_s3_key_prefix = var.s3_bucket_prefix_install_logs
+      output_s3_bucket     = var.s3_log_output_enabled ? local.bucket_id : null
+      output_s3_key_prefix = var.s3_log_output_enabled ? var.s3_bucket_prefix_scan_logs : null
       service_role_arn     = var.sns_notification_role_arn
 
       dynamic "notification_config" {
@@ -144,6 +152,14 @@ resource "aws_ssm_maintenance_window_task" "task_install_patches" {
           notification_arn    = var.notification_arn
           notification_events = var.notification_events
           notification_type   = var.notification_type
+        }
+      }
+
+      dynamic "cloudwatch_config" {
+        for_each = var.cloudwatch_log_output_enabled ? [1] : []
+        content {
+          cloudwatch_output_enabled = var.cloudwatch_log_output_enabled
+          cloudwatch_log_group_name = var.cloudwatch_log_group_name
         }
       }
     }
