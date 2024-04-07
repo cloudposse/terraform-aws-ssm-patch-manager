@@ -9,7 +9,7 @@ module "vpc" {
 
 module "subnets" {
   source  = "cloudposse/dynamic-subnets/aws"
-  version = "2.4.1"
+  version = "2.4.2"
 
   availability_zones   = ["us-east-2a", "us-east-2b"]
   vpc_id               = module.vpc.vpc_id
@@ -37,16 +37,15 @@ module "ec2_instance" {
   ssm_patch_manager_s3_log_bucket = format("%s-%s-%s-%s", module.this.namespace, module.this.environment, module.this.stage, module.this.name)
 
   tags = {
-    "TOSCAN"  = "true",
-    "TOPATCH" = "true"
+    "Patch Group" : "TOPATCH",
   }
+
   context = module.this.context
 
 }
 
 module "ssm_patch_manager" {
   source = "../.."
-  region = var.region
 
   context = module.this.context
 }

@@ -6,15 +6,6 @@ locals {
   bucket_policy     = var.ssm_bucket_policy != null ? var.ssm_bucket_policy : try(data.aws_iam_policy_document.bucket_policy[0].json, "")
 }
 
-
-module "ssm_patch_log_s3_bucket_label" {
-  source  = "cloudposse/label/null"
-  version = "0.25.0"
-
-  enabled = local.create_log_bucket
-  # attributes = ["scan-window"]
-  context = module.this.context
-}
 data "aws_iam_policy_document" "bucket_policy" {
   count = local.create_log_bucket ? 1 : 0
   statement {
@@ -27,8 +18,8 @@ data "aws_iam_policy_document" "bucket_policy" {
     ]
 
     resources = [
-      format("arn:%s:s3:::%s", local.aws_partition, module.ssm_patch_log_s3_bucket_label.id),
-      format("arn:%s:s3:::%s/*", local.aws_partition, module.ssm_patch_log_s3_bucket_label.id)
+      format("arn:%s:s3:::%s", local.aws_partition, module.this.id),
+      format("arn:%s:s3:::%s/*", local.aws_partition, module.this.id)
     ]
 
     principals {
@@ -41,10 +32,10 @@ data "aws_iam_policy_document" "bucket_policy" {
 module "ssm_patch_log_s3_bucket" {
   count   = local.create_log_bucket ? 1 : 0
   source  = "cloudposse/s3-bucket/aws"
-  version = "4.0.0"
+  version = "4.0.1"
 
   acl                     = "private"
   versioning_enabled      = var.ssm_bucket_versioning_enable
   source_policy_documents = [local.bucket_policy]
-  context                 = module.ssm_patch_log_s3_bucket_label.context
+  context                 = module.this.context
 }

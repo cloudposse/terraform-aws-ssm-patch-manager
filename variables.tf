@@ -1,8 +1,3 @@
-variable "region" {
-  type        = string
-  description = "AWS region"
-}
-
 variable "scan_maintenance_window_duration" {
   description = "The duration of the maintenence windows (hours)"
   type        = number
@@ -122,9 +117,15 @@ variable "install_maintenance_window_schedule" {
 }
 
 variable "s3_bucket_prefix_install_logs" {
-  description = "The Amazon S3 bucket subfolder"
+  description = "The Amazon S3 bucket subfolder for install logs"
   type        = string
   default     = "install"
+}
+
+variable "s3_bucket_prefix_scan_logs" {
+  description = "The Amazon S3 bucket subfolder for scan logs"
+  type        = string
+  default     = "scanning"
 }
 
 variable "task_install_priority" {
@@ -169,9 +170,16 @@ variable "rejected_patches" {
 }
 
 variable "patch_baseline_approval_rules" {
-  description = "A set of rules used to include patches in the baseline. Up to 10 approval rules can be specified. Each `approval_rule` block requires the fields documented below."
+  description = <<EOT
+    A set of rules used to include patches in the baseline. Up to 10 approval rules can be specified.
+    Each `approval_rule` block requires the fields documented below (unless marked optional).
+    `approve_after_days` and `approve_until_date` conflict, do not set both in the same `approval_rule`.
+
+    See https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ssm_patch_baseline#approval_rule-block for full details.
+  EOT
   type = list(object({
-    approve_after_days : number
+    approve_after_days : optional(number)
+    approve_until_date : optional(string)
     compliance_level : string
     enable_non_security : bool
     patch_baseline_filters : list(object({
@@ -216,13 +224,31 @@ variable "ssm_bucket_policy" {
 }
 
 variable "bucket_id" {
-  type        = string
-  description = "The bucket ID to use for the patch log. If no bucket ID is provided, the module will create a new one."
-  default     = null
+  type        = list(string)
+  description = "The bucket ID to use for the patch log. If no bucket ID is provided, the module will create a new one. This is of type `list(string)` to work around #41 / https://github.com/hashicorp/terraform/issues/28962."
+  default     = []
 }
 
 variable "ssm_bucket_versioning_enable" {
   type        = string
   description = "To enable or disable S3 bucket versioning for the log bucket."
   default     = true
+}
+
+variable "s3_log_output_enabled" {
+  type        = bool
+  description = "To enable or disable s3 bucket output for the runCommand logs"
+  default     = true
+}
+
+variable "cloudwatch_log_output_enabled" {
+  type        = bool
+  description = "Enables Systems Manager to send command output to CloudWatch Logs."
+  default     = false
+}
+
+variable "cloudwatch_log_group_name" {
+  type        = string
+  description = "The name of the CloudWatch log group where you want to send command output. If you don't specify a group name, Systems Manager automatically creates a log group for you. The log group uses the following naming format: aws/ssm/SystemsManagerDocumentName."
+  default     = null
 }
