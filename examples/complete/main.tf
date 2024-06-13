@@ -23,14 +23,11 @@ module "subnets" {
 
 module "ec2_instance" {
   source  = "cloudposse/ec2-instance/aws"
-  version = "0.41.0"
+  version = "1.2.1"
 
   vpc_id          = module.vpc.vpc_id
   subnet          = module.subnets.private_subnet_ids[0]
   security_groups = [module.vpc.vpc_default_security_group_id]
-  ami             = "ami-0beaa649c482330f7"
-  ami_owner       = "amazon"
-  ssh_key_pair    = ""
 
   # Enabling SSM Patch manager policy, access to the log bucket and the additional tags
   ssm_patch_manager_enabled       = true
@@ -41,7 +38,6 @@ module "ec2_instance" {
   }
 
   context = module.this.context
-
 }
 
 module "ssm_patch_manager" {
