@@ -31,6 +31,7 @@ module "ec2_instance" {
   ami             = "ami-0beaa649c482330f7"
   ami_owner       = "amazon"
   ssh_key_pair    = ""
+  instance_type   = "t3.micro"
 
   # Enabling SSM Patch manager policy, access to the log bucket and the additional tags
   ssm_patch_manager_enabled       = true
