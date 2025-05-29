@@ -3,7 +3,7 @@
 <!-- markdownlint-disable -->
 <a href="https://cpco.io/homepage"><img src="https://github.com/cloudposse/terraform-aws-ssm-patch-manager/blob/main/.github/banner.png?raw=true" alt="Project Banner"/></a><br/>
     <p align="right">
-<a href="https://github.com/cloudposse/terraform-aws-ssm-patch-manager/releases/latest"><img src="https://img.shields.io/github/release/cloudposse/terraform-aws-ssm-patch-manager.svg?style=for-the-badge" alt="Latest Release"/></a><a href="https://github.com/cloudposse/terraform-aws-ssm-patch-manager/commits"><img src="https://img.shields.io/github/last-commit/cloudposse/terraform-aws-ssm-patch-manager.svg?style=for-the-badge" alt="Last Updated"/></a><a href="https://slack.cloudposse.com"><img src="https://slack.cloudposse.com/for-the-badge.svg" alt="Slack Community"/></a></p>
+<a href="https://github.com/cloudposse/terraform-aws-ssm-patch-manager/releases/latest"><img src="https://img.shields.io/github/release/cloudposse/terraform-aws-ssm-patch-manager.svg?style=for-the-badge" alt="Latest Release"/></a><a href="https://github.com/cloudposse/terraform-aws-ssm-patch-manager/commits"><img src="https://img.shields.io/github/last-commit/cloudposse/terraform-aws-ssm-patch-manager.svg?style=for-the-badge" alt="Last Updated"/></a><a href="https://cloudposse.com/slack"><img src="https://slack.cloudposse.com/for-the-badge.svg" alt="Slack Community"/></a></p>
 <!-- markdownlint-restore -->
 
 <!--
@@ -84,18 +84,6 @@ Here is an example of using this module:
 
 
 
-<!-- markdownlint-disable -->
-## Makefile Targets
-```text
-Available targets:
-
-  help                                Help screen
-  help/all                            Display help for all targets
-  help/short                          This help short screen
-  lint                                Lint terraform code
-
-```
-<!-- markdownlint-restore -->
 <!-- markdownlint-disable -->
 ## Requirements
 
@@ -209,6 +197,11 @@ Available targets:
 | <a name="output_ssm_patch_log_s3_bucket_arn"></a> [ssm\_patch\_log\_s3\_bucket\_arn](#output\_ssm\_patch\_log\_s3\_bucket\_arn) | SSM Patch Manager s3 log bucket ARN |
 | <a name="output_ssm_patch_log_s3_bucket_id"></a> [ssm\_patch\_log\_s3\_bucket\_id](#output\_ssm\_patch\_log\_s3\_bucket\_id) | SSM Patch Manager s3 log bucket ID |
 <!-- markdownlint-restore -->
+
+
+
+
+
 
 
 ## Related Projects
