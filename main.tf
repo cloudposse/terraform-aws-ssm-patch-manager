@@ -143,7 +143,7 @@ resource "aws_ssm_maintenance_window_task" "task_install_patches" {
         values = [var.reboot_option]
       }
       output_s3_bucket     = var.s3_log_output_enabled ? local.bucket_id : null
-      output_s3_key_prefix = var.s3_log_output_enabled ? var.s3_bucket_prefix_scan_logs : null
+      output_s3_key_prefix = var.s3_log_output_enabled ? var.s3_bucket_prefix_install_logs : null
       service_role_arn     = var.sns_notification_role_arn
 
       dynamic "notification_config" {
